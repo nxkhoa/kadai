@@ -48,6 +48,25 @@
                 </td>
             </tr>
             <tr>
+                <th>表示終了日</th>
+                <td> <!--TODO check: expiry date must be after reg date--> 
+                    <!--TODO check: must not be partially input-->                    
+                    <select name="expiry_year" 
+                            <option value="" selected="selected">----</option>
+                        <!--{html_options options=$arrYear selected=$arrForm.expiry_year.value}-->
+                    </select>年
+                    <select name="expiry_month" 
+                            <option value="" selected="selected">--</option>
+                        <!--{html_options options=$arrMonth selected=$arrForm.expiry_month.value}-->
+                    </select>月
+                    <select name="expiry_day" 
+                            <option value="" selected="selected">--</option>
+                        <!--{html_options options=$arrDay selected=$arrForm.expiry_day.value}-->
+                    </select>日
+                </td>
+            </tr>
+                
+            <tr>
                 <th>タイトル<span class="attention"> *</span></th>
                 <td>
                     <!--{if $arrErr.news_title}--><span class="attention"><!--{$arrErr.news_title}--></span><!--{/if}-->
@@ -85,7 +104,7 @@
         </div>
     </form>
 
-    <h2>新着情報一覧
+    <h2>新着情報一覧 <!--TODO show another column-->
         <a class="btn-normal" href="">新規登録</a>
     </h2>
 
@@ -101,14 +120,16 @@
         <input type="hidden" name="rank" value="" />
         <table class="list">
             <col width="5%" />
-            <col width="15%" />
-            <col width="45%" />
+            <col width="10%" />
+            <col width="10%" />
+            <col width="40%" />
             <col width="5%" />
             <col width="5%" />
             <col width="25%" />
             <tr>
                 <th>順位</th>
                 <th>日付</th>
+                <th>表示終了日</th>
                 <th>タイトル</th>
                 <th class="edit">編集</th>
                 <th class="delete">削除</th>
@@ -119,6 +140,7 @@
                 <!--{assign var=db_rank value="`$arrNews[data].rank`"}-->
                 <td><!--{math equation="$line_max - $db_rank + 1"}--></td>
                 <td><!--{$arrNews[data].cast_news_date|date_format:"%Y/%m/%d"}--></td>
+                <td><!--{$arrNews[data].expiry_date|date_format:"%Y/%m/%d"}--></td>
                 <td class="left">
                     <!--{if $arrNews[data].link_method eq 1 && $arrNews[data].news_url != ""}--><a href="<!--{$arrNews[data].news_url|h}-->" ><!--{$arrNews[data].news_title|h|nl2br}--></a>
                     <!--{elseif $arrNews[data].link_method eq 1 && $arrNews[data].news_url == ""}--><!--{$arrNews[data].news_title|h|nl2br}-->

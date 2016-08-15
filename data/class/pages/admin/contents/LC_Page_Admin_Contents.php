@@ -47,6 +47,10 @@ class LC_Page_Admin_Contents extends LC_Page_Admin_Ex
             'year' => date('Y'),
             'month' => date('n'),
             'day' => date('j'),
+            //TODO added DONE
+            'expiry_year' => date('Y'),
+            'expiry_month' => date('n'),
+            'expiry_day' => date('j'),
         );
         $this->tpl_maintitle = 'コンテンツ管理';
         $this->tpl_subtitle = '新着情報管理';
@@ -55,6 +59,11 @@ class LC_Page_Admin_Contents extends LC_Page_Admin_Ex
         $this->arrYear = $objDate->getYear();
         $this->arrMonth = $objDate->getMonth();
         $this->arrDay = $objDate->getDay();
+        //TODO add DONE TODO confirm usage 
+        $objExpiryDate = new SC_Date_Ex(ADMIN_NEWS_STARTYEAR);
+        $this->arrExpiryYear = $objExpiryDate->getYear();
+        $this->arrExpiryMonth = $objExpiryDate->getMonth();
+        $this->arrExpiryDay = $objExpiryDate->getDay();
     }
 
     /**
@@ -97,6 +106,7 @@ class LC_Page_Admin_Contents extends LC_Page_Admin_Ex
                 if (count($this->arrErr) <= 0) {
                     // POST値の引き継ぎ
                     $arrParam = $objFormParam->getHashArray();
+                    
                     // 登録実行
                     $res_news_id = $this->doRegist($news_id, $arrParam, $objNews);
                     if ($res_news_id !== FALSE) {
@@ -108,7 +118,8 @@ class LC_Page_Admin_Contents extends LC_Page_Admin_Ex
                 // POSTデータを引き継ぐ
                 $this->tpl_news_id = $news_id;
                 break;
-
+            
+            //TODO confirm usage DONE. This is for editting existing article
             case 'pre_edit':
                 $news = $objNews->getNews($news_id);
                 list($news['year'],$news['month'],$news['day']) = $this->splitNewsDate($news['cast_news_date']);
@@ -183,6 +194,10 @@ class LC_Page_Admin_Contents extends LC_Page_Admin_Ex
         $objFormParam->addParam('日付(年)', 'year', INT_LEN, 'n', array('EXIST_CHECK', 'NUM_CHECK', 'MAX_LENGTH_CHECK'));
         $objFormParam->addParam('日付(月)', 'month', INT_LEN, 'n', array('EXIST_CHECK', 'NUM_CHECK', 'MAX_LENGTH_CHECK'));
         $objFormParam->addParam('日付(日)', 'day', INT_LEN, 'n', array('EXIST_CHECK', 'NUM_CHECK', 'MAX_LENGTH_CHECK'));
+        //TODO add DONE
+        $objFormParam->addParam('終了(年)', 'expiry_year', INT_LEN, 'n', array('NUM_CHECK', 'MAX_LENGTH_CHECK'));
+        $objFormParam->addParam('終了(月)', 'expiry_month', INT_LEN, 'n', array('NUM_CHECK', 'MAX_LENGTH_CHECK'));
+        $objFormParam->addParam('終了(日)', 'expiry_day', INT_LEN, 'n', array('NUM_CHECK', 'MAX_LENGTH_CHECK'));
         $objFormParam->addParam('タイトル', 'news_title', MTEXT_LEN, 'KVa', array('EXIST_CHECK','MAX_LENGTH_CHECK','SPTAB_CHECK'));
         $objFormParam->addParam('URL', 'news_url', URL_LEN, 'KVa', array('MAX_LENGTH_CHECK'));
         $objFormParam->addParam('本文', 'news_comment', LTEXT_LEN, 'KVa', array('MAX_LENGTH_CHECK'));
@@ -204,7 +219,10 @@ class LC_Page_Admin_Contents extends LC_Page_Admin_Ex
         $sqlval['link_method'] = $this->checkLinkMethod($sqlval['link_method']);
         $sqlval['news_date'] = $this->getRegistDate($sqlval);
         unset($sqlval['year'], $sqlval['month'], $sqlval['day']);
-
+        //TODO add DONE redefine sql with new field DONE unset individual values DONE
+        $sqlval['expiry_date'] = $this->getExpiryDate($sqlval);
+        unset($sqlval['expiry_year'], $sqlval['expiry_month'], $sqlval['expiry_day']);
+        //TODO Reconsider: should unsetting be done inside getRegistDate method?
         return $objNews->saveNews($sqlval);
     }
 
@@ -218,6 +236,18 @@ class LC_Page_Admin_Contents extends LC_Page_Admin_Ex
         $registDate = $arrPost['year'] .'/'. $arrPost['month'] .'/'. $arrPost['day'];
 
         return $registDate;
+    }
+
+    /**
+     * データの登録日を返す。TODO add DONE
+     * @param  Array  $arrPost POSTのグローバル変数
+     * @return string 登録日を示す文字列
+     */
+    public function getExpiryDate($arrPost)
+    {
+        $expiryDate = $arrPost['expiry_year'] .'/'. $arrPost['expiry_month'] .'/'. $arrPost['expiry_day'];
+
+        return $expiryDate;
     }
 
     /**
