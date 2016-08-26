@@ -1,0 +1,199 @@
+2016/08/19 17:06:57 [/upgrade/index.php] ##### products_list start ##### from ::1
+customer_id = 
+login_id = admin(0)[9t67o4du6bf8qr3hldcjko4012]
+E:\ECCube\eccube-2.13.5\html\upgrade\index.php(37): LC_Page_Upgrade_ProductsList->process
+E:\ECCube\eccube-2.13.5\data\class\pages\upgrade\LC_Page_Upgrade_ProductsList.php(55): LC_Upgrade_Helper_Log->start
+E:\ECCube\eccube-2.13.5\data\class\pages\upgrade\helper\LC_Upgrade_Helper_Log.php(38): LC_Upgrade_Helper_Log->log
+E:\ECCube\eccube-2.13.5\data\class\pages\upgrade\helper\LC_Upgrade_Helper_Log.php(56): GC_Utils::gfPrintLog
+2016/08/19 17:06:57 [/upgrade/index.php] * admin auth start from ::1
+customer_id = 
+login_id = admin(0)[9t67o4du6bf8qr3hldcjko4012]
+E:\ECCube\eccube-2.13.5\html\upgrade\index.php(37): LC_Page_Upgrade_ProductsList->process
+E:\ECCube\eccube-2.13.5\data\class\pages\upgrade\LC_Page_Upgrade_ProductsList.php(58): LC_Upgrade_Helper_Log->log
+E:\ECCube\eccube-2.13.5\data\class\pages\upgrade\helper\LC_Upgrade_Helper_Log.php(56): GC_Utils::gfPrintLog
+2016/08/19 17:06:57 [/upgrade/index.php] * public key check start from ::1
+customer_id = 
+login_id = admin(0)[9t67o4du6bf8qr3hldcjko4012]
+E:\ECCube\eccube-2.13.5\html\upgrade\index.php(37): LC_Page_Upgrade_ProductsList->process
+E:\ECCube\eccube-2.13.5\data\class\pages\upgrade\LC_Page_Upgrade_ProductsList.php(71): LC_Upgrade_Helper_Log->log
+E:\ECCube\eccube-2.13.5\data\class\pages\upgrade\helper\LC_Upgrade_Helper_Log.php(56): GC_Utils::gfPrintLog
+2016/08/19 17:06:57 [/upgrade/index.php] * http request start from ::1
+customer_id = 
+login_id = admin(0)[9t67o4du6bf8qr3hldcjko4012]
+E:\ECCube\eccube-2.13.5\html\upgrade\index.php(37): LC_Page_Upgrade_ProductsList->process
+E:\ECCube\eccube-2.13.5\data\class\pages\upgrade\LC_Page_Upgrade_ProductsList.php(81): LC_Upgrade_Helper_Log->log
+E:\ECCube\eccube-2.13.5\data\class\pages\upgrade\helper\LC_Upgrade_Helper_Log.php(56): GC_Utils::gfPrintLog
+2016/08/19 17:07:00 [/upgrade/index.php] * http request check start from ::1
+customer_id = 
+login_id = admin(0)[9t67o4du6bf8qr3hldcjko4012]
+E:\ECCube\eccube-2.13.5\html\upgrade\index.php(37): LC_Page_Upgrade_ProductsList->process
+E:\ECCube\eccube-2.13.5\data\class\pages\upgrade\LC_Page_Upgrade_ProductsList.php(91): LC_Upgrade_Helper_Log->log
+E:\ECCube\eccube-2.13.5\data\class\pages\upgrade\helper\LC_Upgrade_Helper_Log.php(56): GC_Utils::gfPrintLog
+2016/08/19 17:07:00 [/upgrade/index.php] * http response check start from ::1
+customer_id = 
+login_id = admin(0)[9t67o4du6bf8qr3hldcjko4012]
+E:\ECCube\eccube-2.13.5\html\upgrade\index.php(37): LC_Page_Upgrade_ProductsList->process
+E:\ECCube\eccube-2.13.5\data\class\pages\upgrade\LC_Page_Upgrade_ProductsList.php(101): LC_Upgrade_Helper_Log->log
+E:\ECCube\eccube-2.13.5\data\class\pages\upgrade\helper\LC_Upgrade_Helper_Log.php(56): GC_Utils::gfPrintLog
+2016/08/19 17:07:00 [/upgrade/index.php] * json deta check start from ::1
+customer_id = 
+login_id = admin(0)[9t67o4du6bf8qr3hldcjko4012]
+E:\ECCube\eccube-2.13.5\html\upgrade\index.php(37): LC_Page_Upgrade_ProductsList->process
+E:\ECCube\eccube-2.13.5\data\class\pages\upgrade\LC_Page_Upgrade_ProductsList.php(114): LC_Upgrade_Helper_Log->log
+E:\ECCube\eccube-2.13.5\data\class\pages\upgrade\helper\LC_Upgrade_Helper_Log.php(56): GC_Utils::gfPrintLog
+2016/08/19 17:07:00 [/upgrade/index.php] * json status check start from ::1
+customer_id = 
+login_id = admin(0)[9t67o4du6bf8qr3hldcjko4012]
+E:\ECCube\eccube-2.13.5\html\upgrade\index.php(37): LC_Page_Upgrade_ProductsList->process
+E:\ECCube\eccube-2.13.5\data\class\pages\upgrade\LC_Page_Upgrade_ProductsList.php(124): LC_Upgrade_Helper_Log->log
+E:\ECCube\eccube-2.13.5\data\class\pages\upgrade\helper\LC_Upgrade_Helper_Log.php(56): GC_Utils::gfPrintLog
+2016/08/19 17:07:00 [/upgrade/index.php] * get products list ok from ::1
+customer_id = 
+login_id = admin(0)[9t67o4du6bf8qr3hldcjko4012]
+E:\ECCube\eccube-2.13.5\html\upgrade\index.php(37): LC_Page_Upgrade_ProductsList->process
+E:\ECCube\eccube-2.13.5\data\class\pages\upgrade\LC_Page_Upgrade_ProductsList.php(126): LC_Upgrade_Helper_Log->log
+E:\ECCube\eccube-2.13.5\data\class\pages\upgrade\helper\LC_Upgrade_Helper_Log.php(56): GC_Utils::gfPrintLog
+2016/08/19 17:07:00 [/upgrade/index.php] ##### end ##### from ::1
+customer_id = 
+login_id = admin(0)[9t67o4du6bf8qr3hldcjko4012]
+E:\ECCube\eccube-2.13.5\html\upgrade\index.php(37): LC_Page_Upgrade_ProductsList->process
+E:\ECCube\eccube-2.13.5\data\class\pages\upgrade\LC_Page_Upgrade_ProductsList.php(147): LC_Upgrade_Helper_Log->end
+E:\ECCube\eccube-2.13.5\data\class\pages\upgrade\helper\LC_Upgrade_Helper_Log.php(47): LC_Upgrade_Helper_Log->log
+E:\ECCube\eccube-2.13.5\data\class\pages\upgrade\helper\LC_Upgrade_Helper_Log.php(56): GC_Utils::gfPrintLog
+2016/08/19 17:07:47 [/upgrade/index.php] ##### download start ##### from ::1
+customer_id = 
+login_id = admin(0)[9t67o4du6bf8qr3hldcjko4012]
+E:\ECCube\eccube-2.13.5\html\upgrade\index.php(37): LC_Page_Upgrade_Download->process
+E:\ECCube\eccube-2.13.5\data\class\pages\upgrade\LC_Page_Upgrade_Download.php(55): LC_Upgrade_Helper_Log->start
+E:\ECCube\eccube-2.13.5\data\class\pages\upgrade\helper\LC_Upgrade_Helper_Log.php(38): LC_Upgrade_Helper_Log->log
+E:\ECCube\eccube-2.13.5\data\class\pages\upgrade\helper\LC_Upgrade_Helper_Log.php(56): GC_Utils::gfPrintLog
+2016/08/19 17:07:47 [/upgrade/index.php] * auth start from ::1
+customer_id = 
+login_id = admin(0)[9t67o4du6bf8qr3hldcjko4012]
+E:\ECCube\eccube-2.13.5\html\upgrade\index.php(37): LC_Page_Upgrade_Download->process
+E:\ECCube\eccube-2.13.5\data\class\pages\upgrade\LC_Page_Upgrade_Download.php(60): LC_Upgrade_Helper_Log->log
+E:\ECCube\eccube-2.13.5\data\class\pages\upgrade\helper\LC_Upgrade_Helper_Log.php(56): GC_Utils::gfPrintLog
+2016/08/19 17:07:47 [/upgrade/index.php] * admin login ok from ::1
+customer_id = 
+login_id = admin(0)[9t67o4du6bf8qr3hldcjko4012]
+E:\ECCube\eccube-2.13.5\html\upgrade\index.php(37): LC_Page_Upgrade_Download->process
+E:\ECCube\eccube-2.13.5\data\class\pages\upgrade\LC_Page_Upgrade_Download.php(61): LC_Page_Upgrade_Download->isValidAccess
+E:\ECCube\eccube-2.13.5\data\class\pages\upgrade\LC_Page_Upgrade_Download.php(322): LC_Upgrade_Helper_Log->log
+E:\ECCube\eccube-2.13.5\data\class\pages\upgrade\helper\LC_Upgrade_Helper_Log.php(56): GC_Utils::gfPrintLog
+2016/08/19 17:07:47 [/upgrade/index.php] * post param check start from ::1
+customer_id = 
+login_id = admin(0)[9t67o4du6bf8qr3hldcjko4012]
+E:\ECCube\eccube-2.13.5\html\upgrade\index.php(37): LC_Page_Upgrade_Download->process
+E:\ECCube\eccube-2.13.5\data\class\pages\upgrade\LC_Page_Upgrade_Download.php(72): LC_Upgrade_Helper_Log->log
+E:\ECCube\eccube-2.13.5\data\class\pages\upgrade\helper\LC_Upgrade_Helper_Log.php(56): GC_Utils::gfPrintLog
+2016/08/19 17:07:47 [/upgrade/index.php] * auto update check start from ::1
+customer_id = 
+login_id = admin(0)[9t67o4du6bf8qr3hldcjko4012]
+E:\ECCube\eccube-2.13.5\html\upgrade\index.php(37): LC_Page_Upgrade_Download->process
+E:\ECCube\eccube-2.13.5\data\class\pages\upgrade\LC_Page_Upgrade_Download.php(83): LC_Upgrade_Helper_Log->log
+E:\ECCube\eccube-2.13.5\data\class\pages\upgrade\helper\LC_Upgrade_Helper_Log.php(56): GC_Utils::gfPrintLog
+2016/08/19 17:07:47 [/upgrade/index.php] * public key check start from ::1
+customer_id = 
+login_id = admin(0)[9t67o4du6bf8qr3hldcjko4012]
+E:\ECCube\eccube-2.13.5\html\upgrade\index.php(37): LC_Page_Upgrade_Download->process
+E:\ECCube\eccube-2.13.5\data\class\pages\upgrade\LC_Page_Upgrade_Download.php(100): LC_Upgrade_Helper_Log->log
+E:\ECCube\eccube-2.13.5\data\class\pages\upgrade\helper\LC_Upgrade_Helper_Log.php(56): GC_Utils::gfPrintLog
+2016/08/19 17:07:47 [/upgrade/index.php] * http request start from ::1
+customer_id = 
+login_id = admin(0)[9t67o4du6bf8qr3hldcjko4012]
+E:\ECCube\eccube-2.13.5\html\upgrade\index.php(37): LC_Page_Upgrade_Download->process
+E:\ECCube\eccube-2.13.5\data\class\pages\upgrade\LC_Page_Upgrade_Download.php(110): LC_Upgrade_Helper_Log->log
+E:\ECCube\eccube-2.13.5\data\class\pages\upgrade\helper\LC_Upgrade_Helper_Log.php(56): GC_Utils::gfPrintLog
+2016/08/19 17:07:51 [/upgrade/index.php] * http request check start from ::1
+customer_id = 
+login_id = admin(0)[9t67o4du6bf8qr3hldcjko4012]
+E:\ECCube\eccube-2.13.5\html\upgrade\index.php(37): LC_Page_Upgrade_Download->process
+E:\ECCube\eccube-2.13.5\data\class\pages\upgrade\LC_Page_Upgrade_Download.php(134): LC_Upgrade_Helper_Log->log
+E:\ECCube\eccube-2.13.5\data\class\pages\upgrade\helper\LC_Upgrade_Helper_Log.php(56): GC_Utils::gfPrintLog
+2016/08/19 17:07:51 [/upgrade/index.php] * http response check start from ::1
+customer_id = 
+login_id = admin(0)[9t67o4du6bf8qr3hldcjko4012]
+E:\ECCube\eccube-2.13.5\html\upgrade\index.php(37): LC_Page_Upgrade_Download->process
+E:\ECCube\eccube-2.13.5\data\class\pages\upgrade\LC_Page_Upgrade_Download.php(144): LC_Upgrade_Helper_Log->log
+E:\ECCube\eccube-2.13.5\data\class\pages\upgrade\helper\LC_Upgrade_Helper_Log.php(56): GC_Utils::gfPrintLog
+2016/08/19 17:07:51 [/upgrade/index.php] * json data check start from ::1
+customer_id = 
+login_id = admin(0)[9t67o4du6bf8qr3hldcjko4012]
+E:\ECCube\eccube-2.13.5\html\upgrade\index.php(37): LC_Page_Upgrade_Download->process
+E:\ECCube\eccube-2.13.5\data\class\pages\upgrade\LC_Page_Upgrade_Download.php(157): LC_Upgrade_Helper_Log->log
+E:\ECCube\eccube-2.13.5\data\class\pages\upgrade\helper\LC_Upgrade_Helper_Log.php(56): GC_Utils::gfPrintLog
+2016/08/19 17:07:51 [/upgrade/index.php] * save file start from ::1
+customer_id = 
+login_id = admin(0)[9t67o4du6bf8qr3hldcjko4012]
+E:\ECCube\eccube-2.13.5\html\upgrade\index.php(37): LC_Page_Upgrade_Download->process
+E:\ECCube\eccube-2.13.5\data\class\pages\upgrade\LC_Page_Upgrade_Download.php(168): LC_Upgrade_Helper_Log->log
+E:\ECCube\eccube-2.13.5\data\class\pages\upgrade\helper\LC_Upgrade_Helper_Log.php(56): GC_Utils::gfPrintLog
+2016/08/19 17:07:51 [/upgrade/index.php] * open 1471594071.tar.gz start from ::1
+customer_id = 
+login_id = admin(0)[9t67o4du6bf8qr3hldcjko4012]
+E:\ECCube\eccube-2.13.5\html\upgrade\index.php(37): LC_Page_Upgrade_Download->process
+E:\ECCube\eccube-2.13.5\data\class\pages\upgrade\LC_Page_Upgrade_Download.php(175): LC_Upgrade_Helper_Log->log
+E:\ECCube\eccube-2.13.5\data\class\pages\upgrade\helper\LC_Upgrade_Helper_Log.php(56): GC_Utils::gfPrintLog
+2016/08/19 17:07:51 [/upgrade/index.php] * mkdir E:/ECCube/eccube-2.13.5/html/../data/downloads/tmp/1471594071 start from ::1
+customer_id = 
+login_id = admin(0)[9t67o4du6bf8qr3hldcjko4012]
+E:\ECCube\eccube-2.13.5\html\upgrade\index.php(37): LC_Page_Upgrade_Download->process
+E:\ECCube\eccube-2.13.5\data\class\pages\upgrade\LC_Page_Upgrade_Download.php(189): LC_Upgrade_Helper_Log->log
+E:\ECCube\eccube-2.13.5\data\class\pages\upgrade\helper\LC_Upgrade_Helper_Log.php(56): GC_Utils::gfPrintLog
+2016/08/19 17:07:51 [/upgrade/index.php] * extract E:/ECCube/eccube-2.13.5/html/../data/downloads/tmp/1471594071.tar.gz start from ::1
+customer_id = 
+login_id = admin(0)[9t67o4du6bf8qr3hldcjko4012]
+E:\ECCube\eccube-2.13.5\html\upgrade\index.php(37): LC_Page_Upgrade_Download->process
+E:\ECCube\eccube-2.13.5\data\class\pages\upgrade\LC_Page_Upgrade_Download.php(198): LC_Upgrade_Helper_Log->log
+E:\ECCube\eccube-2.13.5\data\class\pages\upgrade\helper\LC_Upgrade_Helper_Log.php(56): GC_Utils::gfPrintLog
+2016/08/19 17:07:53 [/upgrade/index.php] * copy batch start from ::1
+customer_id = 
+login_id = admin(0)[9t67o4du6bf8qr3hldcjko4012]
+E:\ECCube\eccube-2.13.5\html\upgrade\index.php(37): LC_Page_Upgrade_Download->process
+E:\ECCube\eccube-2.13.5\data\class\pages\upgrade\LC_Page_Upgrade_Download.php(202): LC_Upgrade_Helper_Log->log
+E:\ECCube\eccube-2.13.5\data\class\pages\upgrade\helper\LC_Upgrade_Helper_Log.php(56): GC_Utils::gfPrintLog
+2016/08/19 17:07:56 [/upgrade/index.php] * copy batch check start from ::1
+customer_id = 
+login_id = admin(0)[9t67o4du6bf8qr3hldcjko4012]
+E:\ECCube\eccube-2.13.5\html\upgrade\index.php(37): LC_Page_Upgrade_Download->process
+E:\ECCube\eccube-2.13.5\data\class\pages\upgrade\LC_Page_Upgrade_Download.php(207): LC_Upgrade_Helper_Log->log
+E:\ECCube\eccube-2.13.5\data\class\pages\upgrade\helper\LC_Upgrade_Helper_Log.php(56): GC_Utils::gfPrintLog
+2016/08/19 17:07:56 [/upgrade/index.php] * insert dtb_module_update start from ::1
+customer_id = 
+login_id = admin(0)[9t67o4du6bf8qr3hldcjko4012]
+E:\ECCube\eccube-2.13.5\html\upgrade\index.php(37): LC_Page_Upgrade_Download->process
+E:\ECCube\eccube-2.13.5\data\class\pages\upgrade\LC_Page_Upgrade_Download.php(219): LC_Upgrade_Helper_Log->log
+E:\ECCube\eccube-2.13.5\data\class\pages\upgrade\helper\LC_Upgrade_Helper_Log.php(56): GC_Utils::gfPrintLog
+2016/08/19 17:07:56 [/upgrade/index.php] * insert/update dtb_module start from ::1
+customer_id = 
+login_id = admin(0)[9t67o4du6bf8qr3hldcjko4012]
+E:\ECCube\eccube-2.13.5\html\upgrade\index.php(37): LC_Page_Upgrade_Download->process
+E:\ECCube\eccube-2.13.5\data\class\pages\upgrade\LC_Page_Upgrade_Download.php(223): LC_Upgrade_Helper_Log->log
+E:\ECCube\eccube-2.13.5\data\class\pages\upgrade\helper\LC_Upgrade_Helper_Log.php(56): GC_Utils::gfPrintLog
+2016/08/19 17:07:56 [/upgrade/index.php] * file execute start from ::1
+customer_id = 
+login_id = admin(0)[9t67o4du6bf8qr3hldcjko4012]
+E:\ECCube\eccube-2.13.5\html\upgrade\index.php(37): LC_Page_Upgrade_Download->process
+E:\ECCube\eccube-2.13.5\data\class\pages\upgrade\LC_Page_Upgrade_Download.php(227): LC_Upgrade_Helper_Log->log
+E:\ECCube\eccube-2.13.5\data\class\pages\upgrade\helper\LC_Upgrade_Helper_Log.php(56): GC_Utils::gfPrintLog
+2016/08/19 17:07:56 [/upgrade/index.php] * notify to lockon server start from ::1
+customer_id = 
+login_id = admin(0)[9t67o4du6bf8qr3hldcjko4012]
+E:\ECCube\eccube-2.13.5\html\upgrade\index.php(37): LC_Page_Upgrade_Download->process
+E:\ECCube\eccube-2.13.5\data\class\pages\upgrade\LC_Page_Upgrade_Download.php(231): LC_Upgrade_Helper_Log->log
+E:\ECCube\eccube-2.13.5\data\class\pages\upgrade\helper\LC_Upgrade_Helper_Log.php(56): GC_Utils::gfPrintLog
+2016/08/19 17:07:57 [/upgrade/index.php] * dl commit result:O:12:"HTTP_Request":26:{s:4:"_url";O:7:"Net_URL":13:{s:7:"options";a:1:{s:17:"encode_query_keys";b:0;}s:3:"url";s:40:"http://stg.ec-cube.net/upgrade/index.php";s:8:"protocol";s:4:"http";s:8:"username";N;s:8:"password";N;s:4:"host";s:15:"stg.ec-cube.net";s:4:"port";i:80;s:4:"path";s:18:"/upgrade/index.php";s:11:"querystring";a:0:{}s:6:"anchor";s:0:"";s:11:"useBrackets";b:1;s:4:"user";s:0:"";s:4:"pass";s:0:"";}s:7:"_method";s:4:"POST";s:5:"_http";s:3:"1.1";s:15:"_requestHeaders";a:6:{s:10:"user-agent";s:48:"PEAR HTTP_Request class ( http://pear.php.net/ )";s:10:"connection";s:5:"close";s:15:"accept-encoding";s:4:"gzip";s:4:"host";s:15:"stg.ec-cube.net";s:6:"cookie";s:36:"PHPSESSID=02fc05jgjjhukir49d7ljm8ke7";s:12:"content-type";s:33:"application/x-www-form-urlencoded";}s:5:"_user";N;s:5:"_pass";N;s:5:"_sock";O:10:"Net_Socket":14:{s:2:"fp";N;s:8:"blocking";b:1;s:10:"persistent";b:0;s:4:"addr";s:13:"113.39.64.151";s:4:"port";i:80;s:7:"timeout";b:0;s:10:"lineLength";i:2048;s:7:"newline";s:2:"
+";s:6:"_debug";b:0;s:19:"_default_error_mode";N;s:22:"_default_error_options";N;s:22:"_default_error_handler";s:0:"";s:12:"_error_class";s:10:"PEAR_Error";s:16:"_expected_errors";a:0:{}}s:11:"_proxy_host";N;s:11:"_proxy_port";N;s:11:"_proxy_user";N;s:11:"_proxy_pass";N;s:9:"_postData";a:2:{s:4:"mode";s:15:"download_commit";s:10:"eccube_url";s:33:"http%3A%2F%2Flocalhost%3A32951%2F";}s:5:"_body";N;s:15:"_bodyDisallowed";a:1:{i:0;s:5:"TRACE";}s:13:"_bodyRequired";a:2:{i:0;s:4:"POST";i:1;s:3:"PUT";}s:10:"_postFiles";a:0:{}s:8:"_timeout";N;s:9:"_response";O:13:"HTTP_Response":10:{s:5:"_sock";R:28;s:9:"_protocol";s:8:"HTTP/1.1";s:5:"_code";i:200;s:7:"_reason";s:2:"OK";s:8:"_headers";a:6:{s:4:"date";s:29:"Fri, 19 Aug 2016 08:07:56 GMT";s:6:"server";s:23:"Apache/2.2.15 (Red Hat)";s:12:"x-powered-by";s:9:"PHP/5.3.3";s:14:"content-length";s:2:"55";s:10:"connection";s:5:"close";s:12:"content-type";s:30:"text/javascript; charset=UTF-8";}s:8:"_cookies";a:1:{i:0;a:6:{s:7:"expires";s:29:"Thu, 20-Aug-2015 08:07:56 GMT";s:6:"domain";N;s:4:"path";s:1:"/";s:6:"secure";b:0;s:4:"name";s:9:"PHPSESSID";s:5:"value";s:7:"deleted";}}s:5:"_body";s:55:"{"status":"SUCCESS","errcode":null,"msg":"","data":[]}
+";s:12:"_chunkLength";i:0;s:10:"_listeners";a:0:{}s:7:"_toRead";i:0;}s:15:"_allowRedirects";b:0;s:13:"_maxRedirects";i:3;s:10:"_redirects";i:0;s:12:"_useBrackets";b:1;s:10:"_listeners";R:79;s:9:"_saveBody";b:1;s:12:"_readTimeout";N;s:14:"_socketOptions";N;} from ::1
+customer_id = 
+login_id = admin(0)[9t67o4du6bf8qr3hldcjko4012]
+E:\ECCube\eccube-2.13.5\html\upgrade\index.php(37): LC_Page_Upgrade_Download->process
+E:\ECCube\eccube-2.13.5\data\class\pages\upgrade\LC_Page_Upgrade_Download.php(234): LC_Upgrade_Helper_Log->log
+E:\ECCube\eccube-2.13.5\data\class\pages\upgrade\helper\LC_Upgrade_Helper_Log.php(56): GC_Utils::gfPrintLog
+2016/08/19 17:07:57 [/upgrade/index.php] ##### end ##### from ::1
+customer_id = 
+login_id = admin(0)[9t67o4du6bf8qr3hldcjko4012]
+E:\ECCube\eccube-2.13.5\html\upgrade\index.php(37): LC_Page_Upgrade_Download->process
+E:\ECCube\eccube-2.13.5\data\class\pages\upgrade\LC_Page_Upgrade_Download.php(240): LC_Upgrade_Helper_Log->end
+E:\ECCube\eccube-2.13.5\data\class\pages\upgrade\helper\LC_Upgrade_Helper_Log.php(47): LC_Upgrade_Helper_Log->log
+E:\ECCube\eccube-2.13.5\data\class\pages\upgrade\helper\LC_Upgrade_Helper_Log.php(56): GC_Utils::gfPrintLog

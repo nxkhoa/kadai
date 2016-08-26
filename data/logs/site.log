@@ -1,0 +1,31 @@
+2016/08/19 18:07:13 [/shopping/confirm.php] order complete. order_id=1 from ::1
+customer_id = 1
+E:\ECCube\eccube-2.13.5\html\shopping\confirm.php(29): LC_Page_Shopping_Confirm_Ex->process
+E:\ECCube\eccube-2.13.5\data\class_extends\page_extends\shopping\LC_Page_Shopping_Confirm_Ex.php(54): LC_Page_Shopping_Confirm->process
+E:\ECCube\eccube-2.13.5\data\class\pages\shopping\LC_Page_Shopping_Confirm.php(63): LC_Page_Shopping_Confirm->action
+E:\ECCube\eccube-2.13.5\data\class\pages\shopping\LC_Page_Shopping_Confirm.php(169): SC_Helper_Purchase->completeOrder
+E:\ECCube\eccube-2.13.5\data\class\helper\SC_Helper_Purchase.php(103): GC_Utils::gfPrintLog
+2016/08/19 18:07:15 [/shopping/confirm.php] DEBUG
+Array
+(
+    [MIME-Version] => 1.0
+    [To] => "khoa khoa =?ISO-2022-JP?B?GyRCTU0bKEI=?=" <nxkhoa@lockon.co.jp>
+    [Subject] => =?ISO-2022-JP?B?GyRCIVobKEJTSE9QIDIuMTMuNRskQiFbGyhCIBskQiQ0Q21KOCQiGyhC?=
+ =?ISO-2022-JP?B?GyRCJGokLCRIJCYkNCQ2JCQkXiQ5GyhC?=
+    [From] => "SHOP 2.13.5" <nxkhoa@lockon.co.jp>
+    [Return-Path] => nxkhoa@lockon.co.jp
+    [Reply-To] => nxkhoa@lockon.co.jp
+    [Bcc] => nxkhoa@lockon.co.jp
+    [Date] => Fri, 19 Aug 2016 18:07:14 +0900
+    [Content-Transfer-Encoding] => 7bit
+    [Content-Type] => text/plain; charset="ISO-2022-JP"
+)
+ from ::1
+customer_id = 1
+E:\ECCube\eccube-2.13.5\html\shopping\confirm.php(29): LC_Page_Shopping_Confirm_Ex->process
+E:\ECCube\eccube-2.13.5\data\class_extends\page_extends\shopping\LC_Page_Shopping_Confirm_Ex.php(54): LC_Page_Shopping_Confirm->process
+E:\ECCube\eccube-2.13.5\data\class\pages\shopping\LC_Page_Shopping_Confirm.php(63): LC_Page_Shopping_Confirm->action
+E:\ECCube\eccube-2.13.5\data\class\pages\shopping\LC_Page_Shopping_Confirm.php(170): SC_Helper_Purchase::sendOrderMail
+E:\ECCube\eccube-2.13.5\data\class\helper\SC_Helper_Purchase.php(1097): SC_Helper_Mail->sfSendOrderMail
+E:\ECCube\eccube-2.13.5\data\class\helper\SC_Helper_Mail.php(204): SC_SendMail->sendMail
+E:\ECCube\eccube-2.13.5\data\class\SC_SendMail.php(331): GC_Utils->gfDebugLog

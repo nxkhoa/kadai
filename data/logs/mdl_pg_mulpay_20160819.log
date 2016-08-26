@@ -1,0 +1,95 @@
+2016/08/19 17:10:17 [/admin/basis/payment_input.php] is mulpay payment payment_id:5 pay_id:10 from ::1
+login_id = admin(0)[9t67o4du6bf8qr3hldcjko4012]
+E:\ECCube\eccube-2.13.5\html\admin\basis\payment_input.php(29): LC_Page_Admin_Basis_PaymentInput_Ex->process
+E:\ECCube\eccube-2.13.5\data\class_extends\page_extends\admin\basis\LC_Page_Admin_Basis_PaymentInput_Ex.php(54): LC_Page_Admin_Basis_PaymentInput->process
+E:\ECCube\eccube-2.13.5\data\class\pages\admin\basis\LC_Page_Admin_Basis_PaymentInput.php(61): LC_Page_Admin->sendResponse
+E:\ECCube\eccube-2.13.5\data\class\pages\admin\LC_Page_Admin.php(104): SC_Helper_Plugin->doAction
+E:\ECCube\eccube-2.13.5\data\class\helper\SC_Helper_Plugin.php(145): call_user_func_array
+(): PgMulpayCore->hookActionAfter
+E:\ECCube\eccube-2.13.5\data\downloads\plugin\PgMulpayCore\PgMulpayCore.php(127): PgMulpayCore->callHookAction
+E:\ECCube\eccube-2.13.5\data\downloads\plugin\PgMulpayCore\PgMulpayCore.php(137): LC_PgMulpayCore->actionHook
+E:\ECCube\eccube-2.13.5\data\downloads\module\mdl_pg_mulpay\class\plugin\LC_PgMulpayCore.php(103): SC_Util_PG_MULPAY->printLog
+E:\ECCube\eccube-2.13.5\data\downloads\module\mdl_pg_mulpay\class\util\SC_Util_PG_MULPAY.php(816): SC_Mdl_PG_MULPAY->printLog
+E:\ECCube\eccube-2.13.5\data\downloads\module\mdl_pg_mulpay\class\SC_Mdl_PG_MULPAY.php(268): GC_Utils::gfPrintLog
+2016/08/19 17:10:36 [/admin/basis/payment_input.php] is mulpay payment payment_id:5 pay_id:10 from ::1
+login_id = admin(0)[9t67o4du6bf8qr3hldcjko4012]
+E:\ECCube\eccube-2.13.5\html\admin\basis\payment_input.php(29): LC_Page_Admin_Basis_PaymentInput_Ex->process
+E:\ECCube\eccube-2.13.5\data\class_extends\page_extends\admin\basis\LC_Page_Admin_Basis_PaymentInput_Ex.php(54): LC_Page_Admin_Basis_PaymentInput->process
+E:\ECCube\eccube-2.13.5\data\class\pages\admin\basis\LC_Page_Admin_Basis_PaymentInput.php(61): LC_Page_Admin->sendResponse
+E:\ECCube\eccube-2.13.5\data\class\pages\admin\LC_Page_Admin.php(104): SC_Helper_Plugin->doAction
+E:\ECCube\eccube-2.13.5\data\class\helper\SC_Helper_Plugin.php(145): call_user_func_array
+(): PgMulpayCore->hookActionAfter
+E:\ECCube\eccube-2.13.5\data\downloads\plugin\PgMulpayCore\PgMulpayCore.php(127): PgMulpayCore->callHookAction
+E:\ECCube\eccube-2.13.5\data\downloads\plugin\PgMulpayCore\PgMulpayCore.php(137): LC_PgMulpayCore->actionHook
+E:\ECCube\eccube-2.13.5\data\downloads\module\mdl_pg_mulpay\class\plugin\LC_PgMulpayCore.php(103): SC_Util_PG_MULPAY->printLog
+E:\ECCube\eccube-2.13.5\data\downloads\module\mdl_pg_mulpay\class\util\SC_Util_PG_MULPAY.php(816): SC_Mdl_PG_MULPAY->printLog
+E:\ECCube\eccube-2.13.5\data\downloads\module\mdl_pg_mulpay\class\SC_Mdl_PG_MULPAY.php(268): GC_Utils::gfPrintLog
+2016/08/19 17:10:36 [/admin/basis/payment_input.php] set paymentTypeConfig payment_id:5 from ::1
+login_id = admin(0)[9t67o4du6bf8qr3hldcjko4012]
+E:\ECCube\eccube-2.13.5\html\admin\basis\payment_input.php(29): LC_Page_Admin_Basis_PaymentInput_Ex->process
+E:\ECCube\eccube-2.13.5\data\class_extends\page_extends\admin\basis\LC_Page_Admin_Basis_PaymentInput_Ex.php(54): LC_Page_Admin_Basis_PaymentInput->process
+E:\ECCube\eccube-2.13.5\data\class\pages\admin\basis\LC_Page_Admin_Basis_PaymentInput.php(61): LC_Page_Admin->sendResponse
+E:\ECCube\eccube-2.13.5\data\class\pages\admin\LC_Page_Admin.php(104): SC_Helper_Plugin->doAction
+E:\ECCube\eccube-2.13.5\data\class\helper\SC_Helper_Plugin.php(145): call_user_func_array
+(): PgMulpayCore->hookActionAfter
+E:\ECCube\eccube-2.13.5\data\downloads\plugin\PgMulpayCore\PgMulpayCore.php(127): PgMulpayCore->callHookAction
+E:\ECCube\eccube-2.13.5\data\downloads\plugin\PgMulpayCore\PgMulpayCore.php(137): LC_PgMulpayCore->actionHook
+E:\ECCube\eccube-2.13.5\data\downloads\module\mdl_pg_mulpay\class\plugin\LC_PgMulpayCore.php(114): SC_Util_PG_MULPAY->setPaymentTypeConfig
+E:\ECCube\eccube-2.13.5\data\downloads\module\mdl_pg_mulpay\class\util\SC_Util_PG_MULPAY.php(591): SC_Util_PG_MULPAY->printLog
+E:\ECCube\eccube-2.13.5\data\downloads\module\mdl_pg_mulpay\class\util\SC_Util_PG_MULPAY.php(816): SC_Mdl_PG_MULPAY->printLog
+E:\ECCube\eccube-2.13.5\data\downloads\module\mdl_pg_mulpay\class\SC_Mdl_PG_MULPAY.php(268): GC_Utils::gfPrintLog
+2016/08/19 17:10:36 [/admin/basis/payment_input.php] Array
+(
+    [JobCd] => CAPTURE
+    [credit_pay_methods] => Array
+        (
+            [0] => 1-0
+        )
+
+    [enable_mail] => 0
+    [enable_cvs_mails] => 0
+    [use_securitycd] => 0
+    [use_securitycd_option] => 0
+    [TdFlag] => 0
+    [TdTenantName] => 
+    [ClientField1] => 
+    [ClientField2] => 
+    [PaymentTermDay] => 
+    [PaymentTermSec] => 
+    [EdyAddInfo1] => 
+    [EdyAddInfo2] => 
+    [SuicaAddInfo1] => 
+    [SuicaAddInfo2] => 
+    [SuicaAddInfo3] => 
+    [SuicaAddInfo4] => 
+    [Currency] => JPY
+    [order_mail_title1] => お支払いについて
+    [order_mail_body1] => 
+)
+ from ::1
+login_id = admin(0)[9t67o4du6bf8qr3hldcjko4012]
+E:\ECCube\eccube-2.13.5\html\admin\basis\payment_input.php(29): LC_Page_Admin_Basis_PaymentInput_Ex->process
+E:\ECCube\eccube-2.13.5\data\class_extends\page_extends\admin\basis\LC_Page_Admin_Basis_PaymentInput_Ex.php(54): LC_Page_Admin_Basis_PaymentInput->process
+E:\ECCube\eccube-2.13.5\data\class\pages\admin\basis\LC_Page_Admin_Basis_PaymentInput.php(61): LC_Page_Admin->sendResponse
+E:\ECCube\eccube-2.13.5\data\class\pages\admin\LC_Page_Admin.php(104): SC_Helper_Plugin->doAction
+E:\ECCube\eccube-2.13.5\data\class\helper\SC_Helper_Plugin.php(145): call_user_func_array
+(): PgMulpayCore->hookActionAfter
+E:\ECCube\eccube-2.13.5\data\downloads\plugin\PgMulpayCore\PgMulpayCore.php(127): PgMulpayCore->callHookAction
+E:\ECCube\eccube-2.13.5\data\downloads\plugin\PgMulpayCore\PgMulpayCore.php(137): LC_PgMulpayCore->actionHook
+E:\ECCube\eccube-2.13.5\data\downloads\module\mdl_pg_mulpay\class\plugin\LC_PgMulpayCore.php(114): SC_Util_PG_MULPAY->setPaymentTypeConfig
+E:\ECCube\eccube-2.13.5\data\downloads\module\mdl_pg_mulpay\class\util\SC_Util_PG_MULPAY.php(592): SC_Util_PG_MULPAY->printLog
+E:\ECCube\eccube-2.13.5\data\downloads\module\mdl_pg_mulpay\class\util\SC_Util_PG_MULPAY.php(816): SC_Mdl_PG_MULPAY->printLog
+E:\ECCube\eccube-2.13.5\data\downloads\module\mdl_pg_mulpay\class\SC_Mdl_PG_MULPAY.php(268): GC_Utils::gfPrintLog
+2016/08/19 18:08:42 [/admin/basis/payment_input.php] is mulpay payment payment_id:5 pay_id:10 from ::1
+login_id = admin(0)[jamnr8qlb0s02qp5c5oul082d6]
+E:\ECCube\eccube-2.13.5\html\admin\basis\payment_input.php(29): LC_Page_Admin_Basis_PaymentInput_Ex->process
+E:\ECCube\eccube-2.13.5\data\class_extends\page_extends\admin\basis\LC_Page_Admin_Basis_PaymentInput_Ex.php(54): LC_Page_Admin_Basis_PaymentInput->process
+E:\ECCube\eccube-2.13.5\data\class\pages\admin\basis\LC_Page_Admin_Basis_PaymentInput.php(61): LC_Page_Admin->sendResponse
+E:\ECCube\eccube-2.13.5\data\class\pages\admin\LC_Page_Admin.php(104): SC_Helper_Plugin->doAction
+E:\ECCube\eccube-2.13.5\data\class\helper\SC_Helper_Plugin.php(145): call_user_func_array
+(): PgMulpayCore->hookActionAfter
+E:\ECCube\eccube-2.13.5\data\downloads\plugin\PgMulpayCore\PgMulpayCore.php(127): PgMulpayCore->callHookAction
+E:\ECCube\eccube-2.13.5\data\downloads\plugin\PgMulpayCore\PgMulpayCore.php(137): LC_PgMulpayCore->actionHook
+E:\ECCube\eccube-2.13.5\data\downloads\module\mdl_pg_mulpay\class\plugin\LC_PgMulpayCore.php(103): SC_Util_PG_MULPAY->printLog
+E:\ECCube\eccube-2.13.5\data\downloads\module\mdl_pg_mulpay\class\util\SC_Util_PG_MULPAY.php(816): SC_Mdl_PG_MULPAY->printLog
+E:\ECCube\eccube-2.13.5\data\downloads\module\mdl_pg_mulpay\class\SC_Mdl_PG_MULPAY.php(268): GC_Utils::gfPrintLog

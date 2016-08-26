@@ -1,0 +1,22 @@
+<?php
+define('ECCUBE_INSTALL', 'ON');
+define('HTTP_URL', 'http://localhost:32951/');
+define('HTTPS_URL', 'http://localhost:32951/');
+define('ROOT_URLPATH', '/');
+define('DOMAIN_NAME', '');
+define('DB_TYPE', 'mysql');
+define('DB_USER', 'root');
+define('DB_PASSWORD', 'root12345');
+define('DB_SERVER', 'localhost');
+define('DB_NAME', 'ec2.13.5');
+define('DB_PORT', '');
+define('ADMIN_DIR', 'admin/');
+define('ADMIN_FORCE_SSL', FALSE);
+define('ADMIN_ALLOW_HOSTS', 'a:0:{}');
+define('AUTH_MAGIC', 'cliowouclufraecruwrouthosipouvusouthivin');
+define('PASSWORD_HASH_ALGOS', 'sha256');
+define('MAIL_BACKEND', 'mail');
+define('SMTP_HOST', '');
+define('SMTP_PORT', '');
+define('SMTP_USER', '');
+define('SMTP_PASSWORD', '');
