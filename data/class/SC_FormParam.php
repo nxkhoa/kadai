@@ -406,8 +406,8 @@ class SC_FormParam
             $formParamList[$key]['length'] = $this->length[$index];
             // 入力値
             $formParamList[$key]['value'] = $this->getValue($key);
+            
         }
-
         return $formParamList;
     }
 

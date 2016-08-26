@@ -59,11 +59,12 @@ class LC_Page_Admin_Contents extends LC_Page_Admin_Ex
         $this->arrYear = $objDate->getYear();
         $this->arrMonth = $objDate->getMonth();
         $this->arrDay = $objDate->getDay();
-        //TODO add DONE TODO confirm usage 
-        $objExpiryDate = new SC_Date_Ex(ADMIN_NEWS_STARTYEAR);
-        $this->arrExpiryYear = $objExpiryDate->getYear();
-        $this->arrExpiryMonth = $objExpiryDate->getMonth();
-        $this->arrExpiryDay = $objExpiryDate->getDay();
+        //TODO add DONE TODO confirm usage DONE: Those lines are to create options
+        //that shows on the pull down list for date. No need, use above.
+//        $objExpiryDate = new SC_Date_Ex(ADMIN_NEWS_STARTYEAR);
+//        $this->arrExpiryYear = $objExpiryDate->getYear();
+//        $this->arrExpiryMonth = $objExpiryDate->getMonth();
+//        $this->arrExpiryDay = $objExpiryDate->getDay();
     }
 
     /**
@@ -123,6 +124,9 @@ class LC_Page_Admin_Contents extends LC_Page_Admin_Ex
             case 'pre_edit':
                 $news = $objNews->getNews($news_id);
                 list($news['year'],$news['month'],$news['day']) = $this->splitNewsDate($news['cast_news_date']);
+                //TODO Load expiry date to htmlselect when editing an existing item DONE            
+                list($news['expiry_year'],$news['expiry_month'],$news['expiry_day']) = $this->splitNewsDate($news['expiry_date']);
+                
                 $objFormParam->setParam($news);
 
                 // POSTデータを引き継ぐ
@@ -163,8 +167,8 @@ class LC_Page_Admin_Contents extends LC_Page_Admin_Ex
             default:
                 break;
         }
-
-        $this->arrNews = $objNews->getList();
+        // TODO News appearing to admin should include expired DONE
+        $this->arrNews = $objNews->getList(true);
         $this->line_max = count($this->arrNews);
 
         $this->arrForm = $objFormParam->getFormParamList();
@@ -180,6 +184,8 @@ class LC_Page_Admin_Contents extends LC_Page_Admin_Ex
         $objErr = new SC_CheckError_Ex($objFormParam->getHashArray());
         $objErr->arrErr = $objFormParam->checkError();
         $objErr->doFunc(array('日付', 'year', 'month', 'day'), array('CHECK_DATE'));
+        $objErr->doFunc(array('終了日', 'expiry_year', 'expiry_month', 'expiry_day'), array('CHECK_DATE'));
+        $objErr->doFunc(array('日付', '終了', 'year', 'month', 'day', 'expiry_year', 'expiry_month', 'expiry_day'), array('CHECK_SET_TERM'));
 
         return $objErr->arrErr;
     }
@@ -191,13 +197,16 @@ class LC_Page_Admin_Contents extends LC_Page_Admin_Ex
     public function lfInitParam(&$objFormParam)
     {
         $objFormParam->addParam('news_id', 'news_id');
-        $objFormParam->addParam('日付(年)', 'year', INT_LEN, 'n', array('EXIST_CHECK', 'NUM_CHECK', 'MAX_LENGTH_CHECK'));
-        $objFormParam->addParam('日付(月)', 'month', INT_LEN, 'n', array('EXIST_CHECK', 'NUM_CHECK', 'MAX_LENGTH_CHECK'));
-        $objFormParam->addParam('日付(日)', 'day', INT_LEN, 'n', array('EXIST_CHECK', 'NUM_CHECK', 'MAX_LENGTH_CHECK'));
-        //TODO add DONE
-        $objFormParam->addParam('終了(年)', 'expiry_year', INT_LEN, 'n', array('NUM_CHECK', 'MAX_LENGTH_CHECK'));
-        $objFormParam->addParam('終了(月)', 'expiry_month', INT_LEN, 'n', array('NUM_CHECK', 'MAX_LENGTH_CHECK'));
-        $objFormParam->addParam('終了(日)', 'expiry_day', INT_LEN, 'n', array('NUM_CHECK', 'MAX_LENGTH_CHECK'));
+        //TODO Set default value as today DONE
+        $today = getdate();
+        $objFormParam->addParam('日付(年)', 'year', INT_LEN, 'n', array('EXIST_CHECK', 'NUM_CHECK', 'MAX_LENGTH_CHECK'), $today['year']);
+        $objFormParam->addParam('日付(月)', 'month', INT_LEN, 'n', array('EXIST_CHECK', 'NUM_CHECK', 'MAX_LENGTH_CHECK'), $today['mon']);
+        $objFormParam->addParam('日付(日)', 'day', INT_LEN, 'n', array('EXIST_CHECK', 'NUM_CHECK', 'MAX_LENGTH_CHECK'), $today['mday']);
+        //TODO add DONE TODO Set default value as today DONE
+        $objFormParam->addParam('終了(年)', 'expiry_year', INT_LEN, 'n', array('NUM_CHECK', 'MAX_LENGTH_CHECK'), $today['year']);
+        $objFormParam->addParam('終了(月)', 'expiry_month', INT_LEN, 'n', array('NUM_CHECK', 'MAX_LENGTH_CHECK'), $today['mon']);
+        $objFormParam->addParam('終了(日)', 'expiry_day', INT_LEN, 'n', array('NUM_CHECK', 'MAX_LENGTH_CHECK'), $today['mday']);
+        
         $objFormParam->addParam('タイトル', 'news_title', MTEXT_LEN, 'KVa', array('EXIST_CHECK','MAX_LENGTH_CHECK','SPTAB_CHECK'));
         $objFormParam->addParam('URL', 'news_url', URL_LEN, 'KVa', array('MAX_LENGTH_CHECK'));
         $objFormParam->addParam('本文', 'news_comment', LTEXT_LEN, 'KVa', array('MAX_LENGTH_CHECK'));
@@ -246,8 +255,8 @@ class LC_Page_Admin_Contents extends LC_Page_Admin_Ex
     public function getExpiryDate($arrPost)
     {
         $expiryDate = $arrPost['expiry_year'] .'/'. $arrPost['expiry_month'] .'/'. $arrPost['expiry_day'];
-
-        return $expiryDate;
+        // TODO if expiry date is null, then return NULL for writing to DB DONE NOTE: if "NULL" instead of NULL then won't work
+        return strlen($expiryDate) == 2 ? NULL : $expiryDate;
     }
 
     /**

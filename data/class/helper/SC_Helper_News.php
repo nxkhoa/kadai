@@ -58,18 +58,20 @@ class SC_Helper_News
      * @param  boolean $has_deleted 削除されたニュースも含む場合 true; 初期値 false
      * @return array
      */
-    public function getList($dispNumber = 0, $pageNumber = 0, $include_deleted = false, $has_expiry = false)
+    public function getList($include_expiry = false, $dispNumber = 0, $pageNumber = 0, $include_deleted = false)
     {
+        //var_dump($include_deleted);
+        
         $objQuery =& SC_Query_Ex::getSingletonInstance();
         $col = '*, cast(news_date as date) as cast_news_date';
-        $where = '';
+        // TODO If not include_expiry, then modify query to get only non-expired articles DONE
+        // TODO Fix this code! "DATE(expiry_date)=0" --> "DATE IS NULL" DONE
+        $where = $include_expiry ? '' : '(expiry_date IS NULL OR DATE(expiry_date) >= CURDATE())';
         if (!$include_deleted) {
+            if(!$include_expiry) {$where .= ' AND ';}
             $where .= 'del_flg = 0';
         }
         
-        if ($has_expiry) {
-            $where .= '';
-        }
         $table = 'dtb_news';
         $objQuery->setOrder('rank DESC');
         if ($dispNumber > 0) {
@@ -80,7 +82,7 @@ class SC_Helper_News
             }
         }
         $arrRet = $objQuery->select($col, $table, $where);
-
+        
         return $arrRet;
     }
 

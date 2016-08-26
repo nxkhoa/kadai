@@ -48,21 +48,29 @@
                 </td>
             </tr>
             <tr>
-                <th>表示終了日</th>
-                <td> <!--TODO check: expiry date must be after reg date--> 
-                    <!--TODO check: must not be partially input-->                    
-                    <select name="expiry_year" 
+                <th>表示最終日</th>
+                <td> <!--TODO check: expiry date must be after reg date DONE--> 
+                    <!--TODO check: must not be partially input DONE-->     
+                    <!--TODO must show default values as ---- and -- DONE -->
+                    <!--{if ($arrErr.expiry_year || $arrErr.expiry_month || $arrErr.expiry_day) AND !($arrErr.expiry_year && $arrErr.expiry_month && $arrErr.expiry_day)}--><span class="attention"><!--{$arrErr.expiry_year}--><!--{$arrErr.expiry_month}--><!--{$arrErr.expiry_day}--></span><!--{/if}-->
+                    
+                    <select name="expiry_year" <!--{if $arrErr.expiry_year || $arrErr.expiry_month || $arrErr.expiry_day }-->style="background-color:<!--{$smarty.const.ERR_COLOR|h}-->"<!--{/if}-->>
                             <option value="" selected="selected">----</option>
                         <!--{html_options options=$arrYear selected=$arrForm.expiry_year.value}-->
                     </select>年
-                    <select name="expiry_month" 
+                    <select name="expiry_month" <!--{if $arrErr.expiry_year || $arrErr.expiry_month || $arrErr.expiry_day }-->style="background-color:<!--{$smarty.const.ERR_COLOR|h}-->"<!--{/if}-->>
                             <option value="" selected="selected">--</option>
                         <!--{html_options options=$arrMonth selected=$arrForm.expiry_month.value}-->
                     </select>月
-                    <select name="expiry_day" 
+                    <select name="expiry_day" <!--{if $arrErr.expiry_year || $arrErr.expiry_month || $arrErr.expiry_day }-->style="background-color:<!--{$smarty.const.ERR_COLOR|h}-->"<!--{/if}-->>
                             <option value="" selected="selected">--</option>
                         <!--{html_options options=$arrDay selected=$arrForm.expiry_day.value}-->
                     </select>日
+                    ※指定する場合は必ず日付以降の日にちに指定してください。
+                    
+                    <!--{*if "'$arrErr.expiry_year'-'$arrErr.expiry_month'-'$arrErr.expiry_day'"|date_format:"%YYYY-%mm-%dd" < $smarty.now|date_format:"%YYYY-%mm-%dd"}-->
+                    <br><span class="attention">※この記事は表示期間を過ぎているため表示されていません。</span><!--{/if*}-->
+                    
                 </td>
             </tr>
                 
@@ -104,7 +112,7 @@
         </div>
     </form>
 
-    <h2>新着情報一覧 <!--TODO show another column-->
+    <h2>新着情報一覧 
         <a class="btn-normal" href="">新規登録</a>
     </h2>
 
@@ -140,7 +148,17 @@
                 <!--{assign var=db_rank value="`$arrNews[data].rank`"}-->
                 <td><!--{math equation="$line_max - $db_rank + 1"}--></td>
                 <td><!--{$arrNews[data].cast_news_date|date_format:"%Y/%m/%d"}--></td>
-                <td><!--{$arrNews[data].expiry_date|date_format:"%Y/%m/%d"}--></td>
+                <!--TODO show another column DONE-->
+                <!--TODO show in red font if expired-->
+                <td><!--{if $arrNews[data].expiry_date!=null}-->
+                    <!--{if $arrNews[data].expiry_date|date_format:"%Y/%m/%d" < $smarty.now|date_format:"%Y/%m/%d"}--><span class="attention"><!--{$arrNews[data].expiry_date|date_format:"%Y/%m/%d"}-->
+                    </span>
+                    <!--{else}-->
+                        
+                        <!--{$arrNews[data].expiry_date|date_format:"%Y/%m/%d"}-->                        
+                    <!--{/if}-->
+                    <!--{/if}-->
+                </td>
                 <td class="left">
                     <!--{if $arrNews[data].link_method eq 1 && $arrNews[data].news_url != ""}--><a href="<!--{$arrNews[data].news_url|h}-->" ><!--{$arrNews[data].news_title|h|nl2br}--></a>
                     <!--{elseif $arrNews[data].link_method eq 1 && $arrNews[data].news_url == ""}--><!--{$arrNews[data].news_title|h|nl2br}-->

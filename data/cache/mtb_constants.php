@@ -76,9 +76,9 @@ define('ORDER_STATUS_MAX', 50);
 /** フロントレビュー書き込み最大数 */
 define('REVIEW_REGIST_MAX', 5);
 /** デバッグモード(true：sfPrintRやDBのエラーメッセージ、ログレベルがDebugのログを出力する、false：出力しない) */
-define('DEBUG_MODE', false);
+define('DEBUG_MODE', true);
 /** ログを冗長とするか(true:利用する、false:利用しない) */
-define('USE_VERBOSE_LOG', DEBUG_MODE);
+define('USE_VERBOSE_LOG', true);
 /** 管理ユーザID(メンテナンス用表示されない。) */
 define('ADMIN_ID', "1");
 /** 会員登録時に仮会員確認メールを送信するか (true:仮会員、false:本会員) */
@@ -377,9 +377,9 @@ define('SESSION_KEEP_METHOD', "useCookie");
 /** セッションの存続時間 (秒) */
 define('SESSION_LIFETIME', 1800);
 /** オーナーズストアURL */
-define('OSTORE_URL', "http://www.ec-cube.net/");
+define('OSTORE_URL', "http://stg.ec-cube.net/");
 /** オーナーズストアURL */
-define('OSTORE_SSLURL', "https://www.ec-cube.net/");
+define('OSTORE_SSLURL', "http://stg.ec-cube.net/");
 /** オーナーズストアログパス */
 define('OSTORE_LOG_REALFILE', DATA_REALDIR . "logs/ownersstore.log");
 /** お気に入り商品登録(有効:1 無効:0) */
@@ -486,3 +486,4 @@ define('PENDING_ORDER_CANCEL_TIME', 900);
 define('PENDING_ORDER_CANCEL_FLAG', true);
 /** API機能を有効にする(true:する false:しない) */
 define('API_ENABLE_FLAG', false);
+

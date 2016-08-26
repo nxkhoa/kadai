@@ -121,6 +121,7 @@ class LC_Page_FrontParts_Bloc_News extends LC_Page_FrontParts_Bloc_Ex
      */
     public function lfGetNews($dispNumber, $pageNo, SC_Helper_News_Ex $objNews)
     {
+        // TODO News appearing on front page should not include expired DONE
         $arrNewsList = $objNews->getList($dispNumber, $pageNo);
 
         // モバイルサイトのセッション保持 (#797)
