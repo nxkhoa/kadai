@@ -197,6 +197,8 @@ class LC_Page_Admin_Products_ProductClass extends LC_Page_Admin_Ex
         $objFormParam->addParam('在庫数', 'stock_unlimited', INT_LEN, 'n', array('MAX_LENGTH_CHECK', 'NUM_CHECK'));
         $objFormParam->addParam(NORMAL_PRICE_TITLE, 'price01', PRICE_LEN, 'n', array('NUM_CHECK', 'MAX_LENGTH_CHECK'));
         $objFormParam->addParam(SALE_PRICE_TITLE, 'price02', PRICE_LEN, 'n', array('NUM_CHECK', 'MAX_LENGTH_CHECK'));
+        // TODO add SPECIAL_PRICE_TITLE here!! DONE TODO confirm if functioning
+        $objFormParam->addParam(SPECIAL_PRICE_TITLE, 'price03', PRICE_LEN, 'n', array('NUM_CHECK', 'MAX_LENGTH_CHECK'));
         if (OPTION_PRODUCT_TAX_RULE) {
             $objFormParam->addParam('消費税率', 'tax_rate', PERCENTAGE_LEN, 'n', array('NUM_CHECK', 'MAX_LENGTH_CHECK'));
         }
@@ -235,6 +237,8 @@ class LC_Page_Admin_Products_ProductClass extends LC_Page_Admin_Ex
         for ($i = 0; $i < $total; $i++) {
             $del_flg = SC_Utils_Ex::isBlank($arrList['check'][$i]) ? 1 : 0;
             $price02 = SC_Utils_Ex::isBlank($arrList['price02'][$i]) ? 0 : $arrList['price02'][$i];
+            // TODO add below DONE
+            $price03 = SC_Utils_Ex::isBlank($arrList['price03'][$i]) ? NULL : $arrList['price03'][$i];
             // dtb_products_class 登録/更新用
             $registerKeys = array(
                 'classcategory_id1', 'classcategory_id2',
@@ -257,6 +261,11 @@ class LC_Page_Admin_Products_ProductClass extends LC_Page_Admin_Ex
                 $arrPC['stock_unlimited'] = 0;
             }
             $arrPC['price02'] = $price02;
+            // TODO add below UNDONE
+            if($price03){
+                $arrPC['price03'] = $price03;
+                $arrPC['off_rate'] = 100-floor($price03*100/$price02);
+            }
 
             // 該当関数が無いため, セッションの値を直接代入
             $arrPC['creator_id'] = $_SESSION['member_id'];
@@ -309,7 +318,6 @@ class LC_Page_Admin_Products_ProductClass extends LC_Page_Admin_Ex
         $objErr->doFunc(array('規格1', 'class_id1'), array('EXIST_CHECK'));
         $objErr->doFunc(array('規格', 'class_id1', 'select_class_id2'), array('TOP_EXIST_CHECK'));
         $objErr->doFunc(array('規格1', '規格2', 'class_id1', 'class_id2'), array('DIFFERENT_CHECK'));
-
         return $objErr->arrErr;
     }
 
@@ -354,6 +362,14 @@ class LC_Page_Admin_Products_ProductClass extends LC_Page_Admin_Ex
                  */
                 if (OPTION_PRODUCT_TAX_RULE && SC_Utils_Ex::isBlank($arrValues['tax_rate'][$i])) {
                     $arrErr['tax_rate'][$i] = '※ 消費税率が入力されていません。<br />';
+                }
+                
+                // TODO check if special price is smaller than sale price DONE
+                /*
+                 * 特別価格が販売価格より安いかチェック
+                 */
+                if ($arrValues['price03'][$i]>=$arrValues['price02'][$i]) {
+                    $arrErr['price03'][$i] = '※ 特別価格は、販売価格より大きい値を入力できません。<br />';
                 }
                 /*
                  * 商品種別の必須チェック
@@ -472,7 +488,7 @@ class LC_Page_Admin_Products_ProductClass extends LC_Page_Admin_Ex
          */
         $arrKeys = array('classcategory_id1', 'classcategory_id2', 'product_code',
             'classcategory_name1', 'classcategory_name2', 'stock',
-            'stock_unlimited', 'price01', 'price02',
+            'stock_unlimited', 'price01', 'price02', 'price03',
             'product_type_id', 'down_filename', 'down_realfilename', 'upload_index', 'tax_rate'
         );
         $arrFormValues = $objFormParam->getSwapArray($arrKeys);
@@ -756,7 +772,7 @@ __EOF__;
     public function getProductsClass($product_id)
     {
         $objQuery =& SC_Query_Ex::getSingletonInstance();
-        $col = 'product_code, price01, price02, stock, stock_unlimited, sale_limit, deliv_fee, point_rate';
+        $col = 'product_code, price01, price02, price03, off_rate, stock, stock_unlimited, sale_limit, deliv_fee, point_rate';
         $where = 'product_id = ? AND classcategory_id1 = 0 AND classcategory_id2 = 0';
 
         return $objQuery->getRow($col, 'dtb_products_class', $where, array($product_id));

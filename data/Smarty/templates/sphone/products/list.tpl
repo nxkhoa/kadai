@@ -90,21 +90,6 @@
                 <!--★商品名★-->
                 <h3><a rel="external" href="<!--{$smarty.const.P_DETAIL_URLPATH}--><!--{$arrProduct.product_id|u}-->" name="product<!--{$arrProduct.product_id}-->" class="productName"><!--{$arrProduct.name|h}--></a></h3>
 
-                <!--★商品価格★-->
-                <p>
-                    <span class="pricebox sale_price"><span class="mini"><!--{$smarty.const.SALE_PRICE_TITLE|h}-->(税込):</span></span>
-                    <span class="price">
-                        <span id="price02_default_<!--{$id}-->">
-                            <!--{if $arrProduct.price02_min_inctax == $arrProduct.price02_max_inctax}-->
-                                <!--{$arrProduct.price02_min_inctax|n2s}-->
-                            <!--{else}-->
-                                <!--{$arrProduct.price02_min_inctax|n2s}-->～<!--{$arrProduct.price02_max_inctax|n2s}-->
-                            <!--{/if}-->
-                        </span><span id="price02_dynamic_<!--{$id}-->">
-                        </span>円
-                    </span>
-                </p>
-
                 <!--★商品コメント★-->
                 <p class="listcomment"><!--{$arrProduct.main_list_comment|h|nl2br}--></p>
             </div>

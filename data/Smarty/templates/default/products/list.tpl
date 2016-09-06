@@ -180,10 +180,34 @@
                                 <!--{else}-->
                                     <!--{$arrProduct.price02_min_inctax|n2s}-->～<!--{$arrProduct.price02_max_inctax|n2s}-->
                                 <!--{/if}-->
-                            </span><span id="price02_dynamic_<!--{$id}-->"></span><!--{/strip}-->
+                            </span><!--{/strip}--><span id="price02_dynamic_<!--{$id}-->"></span>
                             円</span>
                     </div>
-
+                    <!-- TODO Show price03 in list pages DONE-->
+                    <!--★特別価格★--><!--★割引率★-->
+                    <!--{if $arrProduct.price03_min_inctax != NULL}-->
+                    <dl class="sale_price"><strong>                        
+                        <dt><!--{$smarty.const.SPECIAL_PRICE_TITLE}-->(税込)：</dt>
+                        <dd class="price">
+                            <span id="price03_default"><!--{strip}--> <!-- TODO show off_rate in range too DONE -->
+                                <!--{$arrProduct.price03_min_inctax|n2s}-->
+                                <!--{if $arrProduct.price03_min_inctax != $arrProduct.price03_max_inctax}-->
+                                    ～<!--{$arrProduct.price03_max_inctax|n2s}-->
+                                <!--{/if}-->
+                            </span><span id="price03_dynamic"></span>円&nbsp;(
+                            <span id="off_rate_default">
+                                <!--{if $arrProduct.off_rate_max != NULL}--> 
+                                    <!--{if $arrProduct.off_rate_min != NULL}--><!--{$arrProduct.off_rate_min}-->
+                                    <!--{else}-->0<!--{/if}-->
+                                    <!--{if $arrProduct.off_rate_min != $arrProduct.off_rate_max}--> 
+                                    ～<!--{$arrProduct.off_rate_max|h}--><!--{/if}-->                      
+                                    
+                                <!--{/if}-->
+                            <!--{/strip}--></span><span id="off_rate_dynamic"></span>
+                            <!--{$smarty.const.PERCENT_OFF}-->)
+                        </dd>
+                    </strong></dl>
+                    <!--{/if}-->
                     <!--★コメント★-->
                     <div class="listcomment"><!--{$arrProduct.main_list_comment|h|nl2br}--></div>
 

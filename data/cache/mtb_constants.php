@@ -163,6 +163,12 @@ define('START_BIRTH_YEAR', 1970);
 define('NORMAL_PRICE_TITLE', "通常価格");
 /** 価格名称 */
 define('SALE_PRICE_TITLE', "販売価格");
+/** 価格名称 TODO add this DONE*/
+define('SPECIAL_PRICE_TITLE', "特別価格");
+/** 割引率 TODO add this DONE*/
+define('OFF_RATE', "割引率");
+/** パーセントオフ TODO add this DONE*/
+define('PERCENT_OFF', "% OFF!!");
 /** 標準ログファイル */
 define('LOG_REALFILE', DATA_REALDIR . "logs/site.log");
 /** 会員ログイン ログファイル */

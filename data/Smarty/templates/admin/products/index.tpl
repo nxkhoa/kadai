@@ -205,13 +205,16 @@ function lfnDispChange(){
 
                 <!--検索結果表示テーブル-->
                 <table class="list" id="products-search-result">
-                    <col width="8%" />
+                    <col width="5%" />
                     <col width="9%" />
                     <col width="9%" />
                     <col width="8%" />
+                    <!--{* TODO add below DONE -->
+                    <col width="5%" />
+                    <col width="4%" /*}-->
                     <col width="25%" />
-                    <col width="8%" />
-                    <col width="8%" />
+                    <col width="5%" />
+                    <col width="5%" />
                     <col width="5%" />
                     <col width="5%" />
                     <col width="5%" />
@@ -222,6 +225,8 @@ function lfnDispChange(){
                         <th rowspan="2">商品画像</th>
                         <th rowspan="2">商品コード</th>
                         <th rowspan="2">価格(円)</th>
+                        <!--th rowspan="2">特別価格(円)</th>
+                        <th rowspan="2">割引率</th-->
                         <th>商品名</th>
                         <th rowspan="2">在庫</th>
                         <th rowspan="2">種別</th>
@@ -256,6 +261,17 @@ function lfnDispChange(){
                                 <!--{if $arrProducts[cnt].price02_min != $arrProducts[cnt].price02_max}-->
                                     <br />～ <!--{$arrProducts[cnt].price02_max|n2s}-->
                                 <!--{/if}-->            </td>
+                            <!--{* 特別価格 *} {*TODO add below UNDONE -->
+                            <td rowspan="2" class="right">
+                                <!--{$arrProducts[cnt].price03_min|n2s}-->
+                                <!--{if $arrProducts[cnt].price03_min != $arrProducts[cnt].price03_max}-->
+                                    <br />～ <!--{$arrProducts[cnt].price03_max|n2s}-->
+                                <!--{/if}-->            </td>
+                            <!--{* 割引率 *} {*TODO add below DONE -->
+                            <td rowspan="2" class="right">
+                                <!--{$arrProducts[cnt].off_rate|h}-->
+                                        </td>
+                            <!--{* 商品名 *}-->
                             <td><!--{$arrProducts[cnt].name|h}--></td>
                             <!--{* 在庫 *}-->
                             <!--{* XXX 複数規格でかつ、全ての在庫数量が等しい場合は先頭に「各」と入れたれたら良いと思う。 *}-->

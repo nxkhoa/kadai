@@ -50,13 +50,15 @@
                 <table summary="お気に入り">
                     <col width="15%" />
                     <col width="20%" />
-                    <col width="45%" />
+                    <col width="25%" />
                     <col width="20%" />
-                    <tr>
+                    <col width="20%" />
+                    <tr> <!-- TODO add here -->
                         <th class="alignC">削除</th>
                         <th class="alignC">商品画像</th>
                         <th class="alignC">商品名</th>
                         <th class="alignC"><!--{$smarty.const.SALE_PRICE_TITLE}-->(税込)</th>
+                        <th class="alignC"><!--{$smarty.const.SPECIAL_PRICE_TITLE}-->(税込)</th>
                     </tr>
                     <!--{section name=cnt loop=$arrFavorite}-->
                         <!--{assign var=product_id value="`$arrFavorite[cnt].product_id`"}-->
@@ -80,6 +82,22 @@
                                     <!--{else}-->
                                         <!--{$arrFavorite[cnt].price02_min_inctax|n2s}-->～<!--{$arrFavorite[cnt].price02_max_inctax|n2s}-->
                                     <!--{/if}-->円</span>
+                            </td>
+                            <td class="alignR sale_price">
+                                <!--★特別価格★--><!--★割引率★-->
+                                <!--{if $arrFavorite[cnt].price03_min_inctax != NULL}-->
+                                    <!--{$arrFavorite[cnt].price03_min_inctax|n2s}-->
+                                    <!--{if $arrFavorite[cnt].price03_min_inctax != $arrFavorite[cnt].price03_max_inctax}-->
+                                        ～<!--{$arrFavorite[cnt].price03_max_inctax|n2s}-->
+                                    <!--{/if}-->円 
+                                    <!--{if $arrFavorite[cnt].off_rate_max != NULL}--> 
+                                        <br>(<!--{if $arrFavorite[cnt].off_rate_min != NULL}--><!--{$arrFavorite[cnt].off_rate_min}-->
+                                        <!--{else}-->0<!--{/if}-->
+                                        <!--{if $arrFavorite[cnt].off_rate_min != $arrFavorite[cnt].off_rate_max}--> 
+                                        ～<!--{$arrFavorite[cnt].off_rate_max|h}--><!--{/if}-->                      
+                                        <!--{$smarty.const.PERCENT_OFF}-->)
+                                    <!--{/if}-->
+                                <!--{/if}-->
                             </td>
                         </tr>
                     <!--{/section}-->

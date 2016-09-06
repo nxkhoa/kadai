@@ -201,7 +201,7 @@ class SC_Helper_Plugin
     public function addAction($hook_point, $function, $priority = 0)
     {
         if (!is_callable($function)) {
-            // TODO エラー処理;　コール可能な形式ではありません
+            // TODO: エラー処理;　コール可能な形式ではありません
         }
         $idx = $this->makeActionUniqueId($hook_point, $function, $priority);
         $this->arrRegistedPluginActions[$hook_point][$priority][$idx] = array('function' => $function);

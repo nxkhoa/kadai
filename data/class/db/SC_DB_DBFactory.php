@@ -251,6 +251,9 @@ class SC_DB_DBFactory
          * point_rate, deliv_fee は商品規格(dtb_products_class)ごとに保持しているが,
          * 商品(dtb_products)ごとの設定なので MAX のみを取得する.
          */
+        // TODO add price03/off_rate _ min/max in 2 places DONE
+        // WELL we should do the same with PSQL. But we don't.
+        // LEARN what T4 means, what EOS means, what type $sql is --> strings
         $sql = <<< __EOS__
             (
                 SELECT
@@ -261,6 +264,10 @@ class SC_DB_DBFactory
                     ,T4.price01_max
                     ,T4.price02_min
                     ,T4.price02_max
+                    ,T4.price03_min
+                    ,T4.price03_max
+                    ,T4.off_rate_min
+                    ,T4.off_rate_max
                     ,T4.stock_min
                     ,T4.stock_max
                     ,T4.stock_unlimited_min
@@ -277,6 +284,10 @@ class SC_DB_DBFactory
                             ,MAX(price01) AS price01_max
                             ,MIN(price02) AS price02_min
                             ,MAX(price02) AS price02_max
+                            ,MIN(price03) AS price03_min
+                            ,MAX(price03) AS price03_max
+                            ,MIN(off_rate) AS off_rate_min
+                            ,MAX(off_rate) AS off_rate_max
                             ,MIN(stock) AS stock_min
                             ,MAX(stock) AS stock_max
                             ,MIN(stock_unlimited) AS stock_unlimited_min
@@ -292,7 +303,7 @@ class SC_DB_DBFactory
                         ON dtb_products.maker_id = dtb_maker.maker_id
             ) AS alldtl
 __EOS__;
-
+        
         return $sql;
     }
 }

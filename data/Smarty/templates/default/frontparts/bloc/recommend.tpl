@@ -37,8 +37,25 @@
                                 <h3>
                                     <a href="<!--{$smarty.const.P_DETAIL_URLPATH}--><!--{$arrProduct.product_id|u}-->"><!--{$arrProduct.name|h}--></a>
                                 </h3>
+                                <!-- TODO add here DONE-->
                                 <p class="sale_price">
                                     <!--{$smarty.const.SALE_PRICE_TITLE}-->(税込)： <span class="price"><!--{$arrProduct.price02_min_inctax|n2s}--> 円</span>
+                                    <!--{if $arrProduct.price03_min_inctax!=NULL}-->
+                                        <strong>
+                                        <!-- TODO show off_rate in range too DONE -->
+                                        <!--{$arrProduct.price03_min_inctax|n2s}-->
+                                        <!--{if $arrProduct.price03_min_inctax != $arrProduct.price03_max_inctax}-->
+                                            ～<!--{$arrProduct.price03_max_inctax|n2s}-->
+                                        <!--{/if}-->円 
+                                        <!--{if $arrProduct.off_rate_max != NULL}--> 
+                                            &nbsp;(<!--{if $arrProduct.off_rate_min != NULL}--><!--{$arrProduct.off_rate_min}-->
+                                            <!--{else}-->0<!--{/if}-->
+                                            <!--{if $arrProduct.off_rate_min != $arrProduct.off_rate_max}--> 
+                                            ～<!--{$arrProduct.off_rate_max|h}--><!--{/if}-->                      
+                                            <!--{$smarty.const.PERCENT_OFF}-->)
+                                        <!--{/if}-->
+                                        </strong>
+                                    <!--{/if}-->
                                 </p>
                                 <p class="mini comment"><!--{$arrProduct.comment|h|nl2br}--></p>
                             </div>

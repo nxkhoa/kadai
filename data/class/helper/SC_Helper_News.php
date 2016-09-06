@@ -60,8 +60,6 @@ class SC_Helper_News
      */
     public function getList($include_expiry = false, $dispNumber = 0, $pageNumber = 0, $include_deleted = false)
     {
-        //var_dump($include_deleted);
-        
         $objQuery =& SC_Query_Ex::getSingletonInstance();
         $col = '*, cast(news_date as date) as cast_news_date';
         // TODO If not include_expiry, then modify query to get only non-expired articles DONE

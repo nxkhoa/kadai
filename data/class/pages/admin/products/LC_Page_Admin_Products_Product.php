@@ -325,6 +325,8 @@ class LC_Page_Admin_Products_Product extends LC_Page_Admin_Products_Ex
             $objFormParam->addParam('商品コード', 'product_code', STEXT_LEN, 'KVa', array('EXIST_CHECK', 'SPTAB_CHECK', 'MAX_LENGTH_CHECK'));
             $objFormParam->addParam(NORMAL_PRICE_TITLE, 'price01', PRICE_LEN, 'n', array('NUM_CHECK', 'MAX_LENGTH_CHECK', 'ZERO_START'));
             $objFormParam->addParam(SALE_PRICE_TITLE, 'price02', PRICE_LEN, 'n', array('EXIST_CHECK', 'NUM_CHECK', 'MAX_LENGTH_CHECK', 'ZERO_START'));
+            $objFormParam->addParam(SPECIAL_PRICE_TITLE, 'price03', PRICE_LEN, 'n', array('NUM_CHECK', 'MAX_LENGTH_CHECK', 'ZERO_START'));
+            $objFormParam->addParam(OFF_RATE, 'off_rate', PERCENTAGE_LEN, 'n', array('NUM_CHECK', 'MAX_LENGTH_CHECK', 'ZERO_START'));
             if (OPTION_PRODUCT_TAX_RULE) {
                 $objFormParam->addParam('消費税率', 'tax_rate', PERCENTAGE_LEN, 'n', array('EXIST_CHECK', 'NUM_CHECK', 'MAX_LENGTH_CHECK'));
             }
@@ -476,6 +478,11 @@ class LC_Page_Admin_Products_Product extends LC_Page_Admin_Products_Ex
                 $arrErr = array_merge((array) $arrErr, (array) $objDownFile->checkExists());
                 $objErr->doFunc(array('ダウンロード商品ファイル名', 'down_filename'), array('EXIST_CHECK'));
             }
+        }
+        
+        // TODO check if special price is smaller than sale price DONE
+        if ($arrForm['price03']!=NULL) {
+            $objErr->doFunc(array(SPECIAL_PRICE_TITLE, SALE_PRICE_TITLE, 'price03', 'price02'), array('GREATER_CHECK'));
         }
 
         $arrErr = array_merge((array) $arrErr, (array) $objErr->arrErr);
@@ -855,6 +862,7 @@ class LC_Page_Admin_Products_Product extends LC_Page_Admin_Products_Ex
                     product_code,
                     price01,
                     price02,
+                    price03,
                     deliv_fee,
                     stock,
                     stock_unlimited,
@@ -1033,7 +1041,6 @@ __EOF__;
         }
 
         $objQuery->begin();
-
         // 新規登録(複製時を含む)
         if ($arrList['product_id'] == '') {
             $product_id = $objQuery->nextVal('dtb_products_product_id');
@@ -1076,7 +1083,7 @@ __EOF__;
                     $objQuery =& SC_Query_Ex::getSingletonInstance();
                     foreach ($arrProductsClass as $arrData) {
                         $sqlval = $arrData;
-                        $sqlval['product_class_id'] = $objQuery->nextVal('dtb_products_class_product_class_id');
+                        $sqlval['product_class_id'] = $objQuery->nextVal('dtb_products_class_product_class_id');                        
                         $sqlval['deliv_fee'] = $arrList['deliv_fee'];
                         $sqlval['point_rate'] = $arrList['point_rate'];
                         $sqlval['sale_limit'] = $arrList['sale_limit'];
@@ -1114,6 +1121,7 @@ __EOF__;
             // カテゴリを更新
             $objDb->updateProductCategories($arrList['category_id'], $product_id);
         }
+        
 
         // 商品登録の時は規格を生成する。複製の場合は規格も複製されるのでこの処理は不要。
         if ($arrList['copy_product_id'] == '') {
@@ -1156,13 +1164,14 @@ __EOF__;
         $objDb = new SC_Helper_DB_Ex();
 
         // 配列の添字を定義
-        $checkArray = array('product_class_id', 'product_id', 'product_code', 'stock', 'stock_unlimited', 'price01', 'price02', 'sale_limit', 'deliv_fee', 'point_rate', 'product_type_id', 'down_filename', 'down_realfilename');
+        $checkArray = array('product_class_id', 'product_id', 'product_code', 'stock', 'stock_unlimited', 'price01', 'price02', 'price03', 'off_rate', 'sale_limit', 'deliv_fee', 'point_rate', 'product_type_id', 'down_filename', 'down_realfilename');
         $sqlval = SC_Utils_Ex::sfArrayIntersectKeys($arrList, $checkArray);
         $sqlval = SC_Utils_Ex::arrayDefineIndexes($sqlval, $checkArray);
 
         $sqlval['stock_unlimited'] = $sqlval['stock_unlimited'] ? UNLIMITED_FLG_UNLIMITED : UNLIMITED_FLG_LIMITED;
         $sqlval['creator_id'] = strlen($_SESSION['member_id']) >= 1 ? $_SESSION['member_id'] : '0';
-
+        
+        if($sqlval['price03']) { $sqlval['off_rate'] =number_format(($arrList['price03']/$arrList['price02'] * -100 + 100), 0); }// TODO check this if functioning
         if (strlen($sqlval['product_class_id']) == 0) {
             $sqlval['product_class_id'] = $objQuery->nextVal('dtb_products_class_product_class_id');
             $sqlval['create_date'] = 'CURRENT_TIMESTAMP';
@@ -1174,6 +1183,7 @@ __EOF__;
             // UPDATEの実行
             $objQuery->update('dtb_products_class', $sqlval, 'product_class_id = ?', array($sqlval['product_class_id']));
         }
+        var_dump($sqlval);
         return $sqlval['product_class_id'];
     }
 

@@ -28,7 +28,6 @@
                 <div class="news_contents">
                 <!--{section name=data loop=$arrNews}-->
                 <!--{assign var="date_array" value="-"|explode:$arrNews[data].cast_news_date}-->
-                <!--TODO if expiry_date < now, then class = hidden / display: hidden-->
                 <dl class="newslist">
                     <dt><!--{$date_array[0]}-->年<!--{$date_array[1]}-->月<!--{$date_array[2]}-->日</dt>
                     <dt>

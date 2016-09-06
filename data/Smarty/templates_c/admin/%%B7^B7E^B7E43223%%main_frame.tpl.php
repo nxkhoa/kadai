@@ -1,12 +1,12 @@
-<?php /* Smarty version 2.6.27, created on 2016-08-19 17:10:11
+<?php /* Smarty version 2.6.27, created on 2016-09-02 10:30:34
          compiled from main_frame.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
-smarty_core_load_plugins(array('plugins' => array(array('function', 'printXMLDeclaration', 'main_frame.tpl', 1, false),array('modifier', 'script_escape', 'main_frame.tpl', 5, false),array('modifier', 'count', 'main_frame.tpl', 42, false),array('modifier', 'h', 'main_frame.tpl', 82, false),array('modifier', 'sfDispDBDate', 'main_frame.tpl', 83, false),array('modifier', 'date_format', 'main_frame.tpl', 147, false),)), $this); ?>
+smarty_core_load_plugins(array('plugins' => array(array('function', 'printXMLDeclaration', 'main_frame.tpl', 1, false),array('modifier', 'script_escape', 'main_frame.tpl', 28, false),array('modifier', 'count', 'main_frame.tpl', 65, false),array('modifier', 'h', 'main_frame.tpl', 93, false),array('modifier', 'sfDispDBDate', 'main_frame.tpl', 94, false),array('modifier', 'date_format', 'main_frame.tpl', 162, false),)), $this); ?>
 <?php echo GC_Utils_Ex::printXMLDeclaration(array(), $this);?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
-
-<html xmlns="http://www.w3.org/1999/xhtml" lang="ja" xml:lang="ja"><head>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja" xml:lang="ja">
+<head>
 <meta http-equiv="Content-Type" content="text/html; charset=<?php echo ((is_array($_tmp=@CHAR_CODE)) ? $this->_run_mod_handler('script_escape', true, $_tmp) : smarty_modifier_script_escape($_tmp)); ?>
 " />
 <meta http-equiv="content-script-type" content="text/javascript" />
@@ -60,7 +60,6 @@ img/common/favicon.ico" />
 
     });
 //]]></script>
-
 <?php if (count(((is_array($_tmp=$this->_tpl_vars['arrPageLayout']['HeadNavi'])) ? $this->_run_mod_handler('script_escape', true, $_tmp) : smarty_modifier_script_escape($_tmp))) > 0): ?>
     <?php $_from = ((is_array($_tmp=$this->_tpl_vars['arrPageLayout']['HeadNavi'])) ? $this->_run_mod_handler('script_escape', true, $_tmp) : smarty_modifier_script_escape($_tmp)); if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }if (count($_from)):
     foreach ($_from as $this->_tpl_vars['HeadNaviKey'] => $this->_tpl_vars['HeadNaviItem']):
@@ -72,19 +71,9 @@ smarty_core_smarty_include_php(array('smarty_file' => ((is_array($_tmp=$this->_t
         <?php endif; ?>
     <?php endforeach; endif; unset($_from); ?>
 <?php endif; ?>
+</head>
 
-
-
-<script type="text/javascript">//<![CDATA[
-
-    $(function(){
-        $('li#navi-order ul:first li:last').after('<li id="navi-order-plg_pgmulpayutils_payment_status"><a href="<?php echo ((is_array($_tmp=@ROOT_URLPATH)) ? $this->_run_mod_handler('script_escape', true, $_tmp) : smarty_modifier_script_escape($_tmp)); ?>
-<?php echo ((is_array($_tmp=@ADMIN_DIR)) ? $this->_run_mod_handler('script_escape', true, $_tmp) : smarty_modifier_script_escape($_tmp)); ?>
-order/plg_pgmulpayutils_payment_status.php"><span>決済状況管理</span></a></li>');
-
-    });
-//]]></script>
-</head><body class="<?php if (strlen ( ((is_array($_tmp=$this->_tpl_vars['tpl_authority'])) ? $this->_run_mod_handler('script_escape', true, $_tmp) : smarty_modifier_script_escape($_tmp)) ) >= 1): ?>authority_<?php echo ((is_array($_tmp=$this->_tpl_vars['tpl_authority'])) ? $this->_run_mod_handler('script_escape', true, $_tmp) : smarty_modifier_script_escape($_tmp)); ?>
+<body class="<?php if (strlen ( ((is_array($_tmp=$this->_tpl_vars['tpl_authority'])) ? $this->_run_mod_handler('script_escape', true, $_tmp) : smarty_modifier_script_escape($_tmp)) ) >= 1): ?>authority_<?php echo ((is_array($_tmp=$this->_tpl_vars['tpl_authority'])) ? $this->_run_mod_handler('script_escape', true, $_tmp) : smarty_modifier_script_escape($_tmp)); ?>
 <?php endif; ?>">
 <?php echo ((is_array($_tmp=$this->_tpl_vars['GLOBAL_ERR'])) ? $this->_run_mod_handler('script_escape', true, $_tmp) : smarty_modifier_script_escape($_tmp)); ?>
 
@@ -99,30 +88,30 @@ order/plg_pgmulpayutils_payment_status.php"><span>決済状況管理</span></a><
 <div id="admin-mode-on">ADMIN_MODE ON</div>
 <?php endif; ?>
 
-
 <div id="header">
     <div id="header-contents">
         <div id="logo"><a href="<?php echo ((is_array($_tmp=@ADMIN_HOME_URLPATH)) ? $this->_run_mod_handler('script_escape', true, $_tmp) : smarty_modifier_script_escape($_tmp)); ?>
 "><img src="<?php echo ((is_array($_tmp=$this->_tpl_vars['TPL_URLPATH'])) ? $this->_run_mod_handler('script_escape', true, $_tmp) : smarty_modifier_script_escape($_tmp)); ?>
-img/header/logo.jpg" width="172" height="25" alt="EC-CUBE"></a></div>
+img/header/logo.jpg" width="172" height="25" alt="EC-CUBE" /></a></div>
         <div id="site-check">
-            <p class="info"><span><strong>ログイン : </strong><?php echo ((is_array($_tmp=((is_array($_tmp=$_SESSION['login_name'])) ? $this->_run_mod_handler('script_escape', true, $_tmp) : smarty_modifier_script_escape($_tmp)))) ? $this->_run_mod_handler('h', true, $_tmp) : smarty_modifier_h($_tmp)); ?>
-</span> 様,  
-            <span><strong>最終ログイン日時 : </strong><?php echo ((is_array($_tmp=((is_array($_tmp=((is_array($_tmp=$_SESSION['last_login'])) ? $this->_run_mod_handler('script_escape', true, $_tmp) : smarty_modifier_script_escape($_tmp)))) ? $this->_run_mod_handler('sfDispDBDate', true, $_tmp, true) : SC_Utils_Ex::sfDispDBDate($_tmp, true)))) ? $this->_run_mod_handler('h', true, $_tmp) : smarty_modifier_h($_tmp)); ?>
+            <p class="info"><span><strong>ログイン&nbsp;:&nbsp;</strong><?php echo ((is_array($_tmp=((is_array($_tmp=$_SESSION['login_name'])) ? $this->_run_mod_handler('script_escape', true, $_tmp) : smarty_modifier_script_escape($_tmp)))) ? $this->_run_mod_handler('h', true, $_tmp) : smarty_modifier_h($_tmp)); ?>
+</span>&nbsp;様,&nbsp;&nbsp;
+            <span><strong>最終ログイン日時&nbsp;:&nbsp;</strong><?php echo ((is_array($_tmp=((is_array($_tmp=((is_array($_tmp=$_SESSION['last_login'])) ? $this->_run_mod_handler('script_escape', true, $_tmp) : smarty_modifier_script_escape($_tmp)))) ? $this->_run_mod_handler('sfDispDBDate', true, $_tmp, true) : SC_Utils_Ex::sfDispDBDate($_tmp, true)))) ? $this->_run_mod_handler('h', true, $_tmp) : smarty_modifier_h($_tmp)); ?>
 </span></p>
-            <ul><li><a href="<?php echo ((is_array($_tmp=@HTTP_URL)) ? $this->_run_mod_handler('script_escape', true, $_tmp) : smarty_modifier_script_escape($_tmp)); ?>
+            <ul>
+                <li><a href="<?php echo ((is_array($_tmp=@HTTP_URL)) ? $this->_run_mod_handler('script_escape', true, $_tmp) : smarty_modifier_script_escape($_tmp)); ?>
 <?php echo ((is_array($_tmp=@DIR_INDEX_PATH)) ? $this->_run_mod_handler('script_escape', true, $_tmp) : smarty_modifier_script_escape($_tmp)); ?>
 " class="btn-tool-format" target="_blank"><span>SITE CHECK</span></a></li>
                 <li><a href="<?php echo ((is_array($_tmp=@ADMIN_LOGOUT_URLPATH)) ? $this->_run_mod_handler('script_escape', true, $_tmp) : smarty_modifier_script_escape($_tmp)); ?>
 " class="btn-tool-format">LOGOUT</a></li>
-            </ul></div>
+            </ul>
+        </div>
     </div>
 </div>
 
-
-
 <div id="navi-wrap">
-    <ul id="navi" class="clearfix"><li id="navi-basis" class="on_level1<?php if (((is_array($_tmp=$this->_tpl_vars['tpl_mainno'])) ? $this->_run_mod_handler('script_escape', true, $_tmp) : smarty_modifier_script_escape($_tmp)) == 'basis'): ?> on<?php endif; ?>">
+    <ul id="navi" class="clearfix">
+        <li id="navi-basis" class="on_level1<?php if (((is_array($_tmp=$this->_tpl_vars['tpl_mainno'])) ? $this->_run_mod_handler('script_escape', true, $_tmp) : smarty_modifier_script_escape($_tmp)) == 'basis'): ?> on<?php endif; ?>">
             <div><span>基本情報管理</span></div>
             <?php $_smarty_tpl_vars = $this->_tpl_vars;
 $this->_smarty_include(array('smarty_include_tpl_file' => (@TEMPLATE_ADMIN_REALDIR)."basis/subnavi.tpl", 'smarty_include_vars' => array()));
@@ -202,8 +191,8 @@ $this->_tpl_vars = $_smarty_tpl_vars;
 unset($_smarty_tpl_vars);
  ?>
         </li>
-    </ul></div>
-
+    </ul>
+</div>
 
 <?php if (((is_array($_tmp=$this->_tpl_vars['tpl_subtitle'])) ? $this->_run_mod_handler('script_escape', true, $_tmp) : smarty_modifier_script_escape($_tmp))): ?>
 <h1><span class="title"><?php echo ((is_array($_tmp=((is_array($_tmp=$this->_tpl_vars['tpl_maintitle'])) ? $this->_run_mod_handler('script_escape', true, $_tmp) : smarty_modifier_script_escape($_tmp)))) ? $this->_run_mod_handler('h', true, $_tmp) : smarty_modifier_h($_tmp)); ?>
@@ -219,17 +208,18 @@ unset($_smarty_tpl_vars);
  ?>
 </div>
 
-
 <div id="footer">
     <div id="footer-contents">
-        <div id="copyright">Copyright © 2000-<?php echo ((is_array($_tmp=((is_array($_tmp=time())) ? $this->_run_mod_handler('script_escape', true, $_tmp) : smarty_modifier_script_escape($_tmp)))) ? $this->_run_mod_handler('date_format', true, $_tmp, "%Y") : smarty_modifier_date_format($_tmp, "%Y")); ?>
+        <div id="copyright">Copyright &copy; 2000-<?php echo ((is_array($_tmp=((is_array($_tmp=time())) ? $this->_run_mod_handler('script_escape', true, $_tmp) : smarty_modifier_script_escape($_tmp)))) ? $this->_run_mod_handler('date_format', true, $_tmp, "%Y") : smarty_modifier_date_format($_tmp, "%Y")); ?>
  LOCKON CO.,LTD. All Rights Reserved.</div>
         <div id="topagetop">
-            <ul class="sites"><li><a href="#top" class="btn-tool-format">PAGE TOP</a></li>
-            </ul></div>
+            <ul class="sites">
+                <li><a href="#top" class="btn-tool-format">PAGE TOP</a></li>
+            </ul>
+        </div>
     </div>
 </div>
 
-
 </div>
-</body></html>
+</body>
+</html>

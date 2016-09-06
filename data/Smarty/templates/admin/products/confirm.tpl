@@ -122,6 +122,18 @@
                 <td>
                     <!--{if strlen($arrForm.price02) >= 1}--><!--{$arrForm.price02|h}--> 円<!--{/if}-->
                 </td>
+            </tr> <!-- TODO add here DONE-->
+            <tr>
+                <th><!--{$smarty.const.SPECIAL_PRICE_TITLE}--></th>
+                <td>
+                    <!--{if strlen($arrForm.price03) >= 1}--><!--{$arrForm.price03|h}--> 円<!--{/if}-->
+                </td>
+            </tr>
+            <tr> <!-- TODO add here DONE-->
+                <th><!--{$smarty.const.OFF_RATE}--></th>
+                <td>
+                    <!--{if strlen($arrForm.price03) > 0}--><!--{$arrForm.price03/$arrForm.price02*-100+100|h}--> %<!--{/if}-->
+                </td>
             </tr>
             <!--{if $smarty.const.OPTION_PRODUCT_TAX_RULE ==1}-->
             <tr>

@@ -148,8 +148,8 @@
                 <!--{assign var=db_rank value="`$arrNews[data].rank`"}-->
                 <td><!--{math equation="$line_max - $db_rank + 1"}--></td>
                 <td><!--{$arrNews[data].cast_news_date|date_format:"%Y/%m/%d"}--></td>
-                <!--TODO show another column DONE-->
-                <!--TODO show in red font if expired-->
+                <!-- TODO show another column DONE-->
+                <!-- TODO show in red font if expired DONE-->
                 <td><!--{if $arrNews[data].expiry_date!=null}-->
                     <!--{if $arrNews[data].expiry_date|date_format:"%Y/%m/%d" < $smarty.now|date_format:"%Y/%m/%d"}--><span class="attention"><!--{$arrNews[data].expiry_date|date_format:"%Y/%m/%d"}-->
                     </span>

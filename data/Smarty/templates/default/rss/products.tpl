@@ -37,7 +37,7 @@
                     <img src="<!--{$arrProduct.main_list_image}-->" alt="<!--{$arrProduct.product_name|h|sfMbConvertEncoding:$encode}-->" class="product-thumb" />
                 </a>
                 <div class="product-title"><a href="<!--{$smarty.const.HTTP_URL}-->products/detail.php?product_id=<!--{$arrProduct.product_id}-->" rel="product"><!--{$arrProduct.product_name|h|sfMbConvertEncoding:$encode}--></a></div>
-                商品コード：<!--{$arrProduct.product_code_max|h|sfMbConvertEncoding:$encode}-->
+                商品コード：<!--{$arrProduct.product_code_max|h|sfMbConvertEncoding:$encode}-->                
                 <div><!--{$smarty.const.SALE_PRICE_TITLE}-->：
                     <span class="price">
                         <!--{if $arrProduct.price02_min_inctax == $arrProduct.price02_max_inctax}-->

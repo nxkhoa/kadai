@@ -517,6 +517,30 @@
             $price02_default.show();
         }
 
+        // TODO add here DONE
+        // 特別価格
+        var $price03_default = $form.find('[id^=price03_default]');
+        var $price03_dynamic = $form.find('[id^=price03_dynamic]');
+        if (classcat2 && typeof classcat2.price03 !== 'undefined' && String(classcat2.price03).length >= 1) {
+            
+            $price03_dynamic.text(classcat2.price03).show();
+            $price03_default.hide();
+        } else {
+            $price03_dynamic.hide();
+            $price03_default.show();
+        }
+        // 割引率　TODO add here DONE
+        var $off_rate_default = $form.find('[id^=off_rate_default]');
+        var $off_rate_dynamic = $form.find('[id^=off_rate_dynamic]');
+        if (classcat2 && typeof classcat2.off_rate !== 'undefined' && String(classcat2.off_rate).length >= 1) {
+            
+            $off_rate_dynamic.text(classcat2.off_rate).show();
+            $off_rate_default.hide();
+        } else {
+            $off_rate_dynamic.hide();
+            $off_rate_default.show();
+        }
+
         // ポイント
         var $point_default = $form.find('[id^=point_default]');
         var $point_dynamic = $form.find('[id^=point_dynamic]');

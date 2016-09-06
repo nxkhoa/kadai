@@ -300,6 +300,7 @@ __EOS__;
          * 商品(dtb_products)ごとの設定なので MAX のみを取得する.
          */
         $sub_base = "FROM dtb_products_class WHERE del_flg = 0 AND product_id = dtb_products.product_id $where_products_class";
+        // TODO add price03_min/max here DONE
         $sql = <<< __EOS__
             (
                 SELECT
@@ -311,6 +312,8 @@ __EOS__;
                     ,(SELECT MAX(price01) $sub_base) AS price01_max
                     ,(SELECT MIN(price02) $sub_base) AS price02_min
                     ,(SELECT MAX(price02) $sub_base) AS price02_max
+                    ,(SELECT MIN(price03) $sub_base) AS price03_min
+                    ,(SELECT MAX(price03) $sub_base) AS price03_max
                     ,(SELECT MIN(stock) $sub_base) AS stock_min
                     ,(SELECT MAX(stock) $sub_base) AS stock_max
                     ,(SELECT MIN(stock_unlimited) $sub_base) AS stock_unlimited_min

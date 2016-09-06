@@ -131,6 +131,7 @@ class LC_Page_Shopping_Multiple extends LC_Page_Ex
         $objFormParam->addParam('規格分類2', 'classcategory_name2');
         $objFormParam->addParam('メイン画像', 'main_image');
         $objFormParam->addParam('メイン一覧画像', 'main_list_image');
+        // TODO Remember to modify here!!
         $objFormParam->addParam(SALE_PRICE_TITLE, 'price');
         $objFormParam->addParam(SALE_PRICE_TITLE . '(税込)', 'price_inctax');
         $objFormParam->addParam('数量', 'quantity', INT_LEN, 'n', array('EXIST_CHECK', 'MAX_LENGTH_CHECK', 'NUM_CHECK'), 1);

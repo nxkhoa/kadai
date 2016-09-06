@@ -126,21 +126,75 @@
                         円
                     </dd>
                 </dl>
-
+                                
+                <!-- TODO Show price03 in detail pages DONE-->
+                <!-- MODEL
+                    1000\
+                     900\ (10% off)
+                     900-1800\ (10% off)
+                     900-1700\ (10-15% off)
+                price02_min
+                if(has range): -price02_max
+                \
+                if(has price03): 
+                    (price03_min
+                    if(has sp range): -price03_max
+                    % off!!)
+                -->
+                <!--★特別価格★--><!--★割引率★-->
+                <!--{if $arrProduct.price03_max_inctax != NULL}-->
+                <dl class="sale_price">
+                    <dt><!--{$smarty.const.SPECIAL_PRICE_TITLE}-->(税込)：</dt>
+                    <dd class="price">                        
+                            <span id="price03_default"><!--{strip}-->
+                                <!--{$arrProduct.price03_min_inctax|n2s}-->
+                                <!--{if $arrProduct.price03_min_inctax != $arrProduct.price03_max_inctax}-->
+                                    ～<!--{$arrProduct.price03_max_inctax|n2s}-->
+                                <!--{/if}-->
+                                <!-- LEARN what strip means -->
+                            <!--{/strip}--><!-- LEARN what the next line is here for = to dynamically change the price when categories are selected-->
+                            </span><span id="price03_dynamic"></span>円
+                            
+                            <!-- TODO show off_rate in range too DONE -->
+                            <!--{if $arrProduct.off_rate_max!=NULL}-->
+                                &nbsp;(
+                                <span id="off_rate_default">                  
+                                    <!--{if $arrProduct.off_rate_min!=NULL}--><!--{$arrProduct.off_rate_min}-->
+                                    <!--{else}-->0<!--{/if}-->
+                                    <!--{if $arrProduct.off_rate_min!=$arrProduct.off_rate_max}--> 
+                                    ～<!--{$arrProduct.off_rate_max|h}--><!--{/if}-->        
+                                </span><span id="off_rate_dynamic"></span>
+                                <!--{$smarty.const.PERCENT_OFF}-->)
+                            <!--{/if}-->                        
+                    </dd>
+                </dl>
+                <!--{/if}-->
+                <!-- TODO modify here!!! -->
                 <!--★ポイント★-->
                 <!--{if $smarty.const.USE_POINT !== false}-->
                     <div class="point">ポイント：
                         <span id="point_default"><!--{strip}-->
-                            <!--{if $arrProduct.price02_min == $arrProduct.price02_max}-->
-                                <!--{$arrProduct.price02_min|sfPrePoint:$arrProduct.point_rate|n2s}-->
+                            <!--{if $arrProduct.price03_max_inctax == NULL}-->
+                            <!--{assign var=real_price_min value=$arrProduct.price02_min}-->
+                            <!--{assign var=real_price_max value=$arrProduct.price02_max}-->
                             <!--{else}-->
-                                <!--{if $arrProduct.price02_min|sfPrePoint:$arrProduct.point_rate == $arrProduct.price02_max|sfPrePoint:$arrProduct.point_rate}-->
-                                    <!--{$arrProduct.price02_min|sfPrePoint:$arrProduct.point_rate|n2s}-->
+                            <!--{assign var=real_price_min value=$arrProduct.price03_min}-->
+                            <!--{assign var=real_price_max value=$arrProduct.price03_max}-->                            
+                            <!--{/if}-->   
+                            
+                            
+                            <!--{if $real_price_min == $real_price_max}-->
+                                <!--{$real_price_min|sfPrePoint:$arrProduct.point_rate|n2s}-->
+                            <!--{else}-->
+                                <!--{if $real_price_min|sfPrePoint:$arrProduct.point_rate == $real_price_max|sfPrePoint:$arrProduct.point_rate}-->
+                                    <!--{$real_price_min|sfPrePoint:$arrProduct.point_rate|n2s}-->
                                 <!--{else}-->
-                                    <!--{$arrProduct.price02_min|sfPrePoint:$arrProduct.point_rate|n2s}-->～<!--{$arrProduct.price02_max|sfPrePoint:$arrProduct.point_rate|n2s}-->
+                                    <!--{$real_price_min|sfPrePoint:$arrProduct.point_rate|n2s}-->～<!--{$real_price_max|sfPrePoint:$arrProduct.point_rate|n2s}-->
                                 <!--{/if}-->
                             <!--{/if}-->
-                        <!--{/strip}--></span><span id="point_dynamic"></span>
+                                                     
+                        <!--{/strip}--></span>
+                        <span id="point_dynamic"></span>
                         Pt
                     </div>
                 <!--{/if}-->

@@ -186,23 +186,27 @@
 
         <table class="list">
             <col width="5%" />
-            <col width="15%" />
-            <col width="15%" />
+            <col width="10%" />
+            <col width="10%" />
             <col width="9%" />
             <col width="10%" />
+            <col width="10%" />
+                <!-- TODO add below DONE-->
             <col width="10%" />
             <col width="10%" />
             <col width="10%" />
             <col width="8%" />
             <col width="8%" />
             <tr>
-                <th><input type="checkbox" onclick="eccube.checkAllBox(this, 'input[name^=check]')" id="allCheck" /> <label for="allCheck"><br />登録</label></th>
+                <th><input type="checkbox" onclick="eccube.checkAllBox(this, 'input[name^=check]');" id="allCheck" /> <label for="allCheck"><br />登録</label></th>
                 <th>規格1<br />(<!--{$arrClass[$class_id1]|default:"未選択"|h}-->)</th>
                 <th>規格2<br />(<!--{$arrClass[$class_id2]|default:"未選択"|h}-->)</th>
                 <th>商品コード</th>
                 <th>在庫数<span class="attention">*</span></th>
                 <th><!--{$smarty.const.NORMAL_PRICE_TITLE}-->(円)</th>
                 <th><!--{$smarty.const.SALE_PRICE_TITLE}-->(円)<span class="attention">*</span></th>
+                <!-- TODO add below DONE-->
+                <th><!--{$smarty.const.SPECIAL_PRICE_TITLE}-->(円)</th>
                 <!--{if $smarty.const.OPTION_PRODUCT_TAX_RULE}-->
                 <th>消費税率(%)<span class="attention">*</span></th>
                 <!--{/if}-->
@@ -276,6 +280,13 @@
                         <!--{/if}-->
                         <input type="text" name="<!--{$key}-->[<!--{$index}-->]" value="<!--{$arrForm[$key].value[$index]|h}-->" size="6" class="box6" maxlength="<!--{$arrForm[$key].length}-->" <!--{if $arrErr[$key][$index] != ""}--><!--{sfSetErrorStyle}--><!--{/if}--> id="<!--{$key}-->_<!--{$index}-->" />
                     </td>
+                    <td class="center">
+                        <!--{assign var=key value="price03"}-->
+                        <!--{if $arrErr[$key][$index]}-->
+                            <span class="attention"><!--{$arrErr[$key][$index]}--></span>
+                        <!--{/if}-->
+                        <input type="text" name="<!--{$key}-->[<!--{$index}-->]" value="<!--{$arrForm[$key].value[$index]|h}-->" size="6" class="box6" maxlength="<!--{$arrForm[$key].length}-->" <!--{if $arrErr[$key][$index] != ""}--><!--{sfSetErrorStyle}--><!--{/if}--> id="<!--{$key}-->_<!--{$index}-->" />
+                    </td>
                     <!--{if $smarty.const.OPTION_PRODUCT_TAX_RULE}-->
                     <td class="center">
                         <!--{assign var=key value="tax_rate"}-->
@@ -295,7 +306,7 @@
                         <!--{/foreach}-->
                     </td>
                     <td class="center">
-                        <!--{assign var=key value="down_filename}-->
+                        <!--{assign var=key value="down_filename"}-->
                         <!--{if $arrErr[$key][$index]}-->
                             <span class="attention"><!--{$arrErr[$key][$index]}--></span>
                         <!--{/if}-->

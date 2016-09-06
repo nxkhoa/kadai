@@ -287,6 +287,7 @@ INSERT INTO dtb_csv (no, csv_id, col, disp_name, rank, rw_flg, status, create_da
 INSERT INTO dtb_csv (no, csv_id, col, disp_name, rank, rw_flg, status, create_date, update_date, mb_convert_kana_option, size_const_type, error_check_types) VALUES (49, 1, 'sale_limit', '販売制限数', 49, 1, 1, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 'n', 'AMOUNT_LEN', 'NUM_CHECK,MAX_LENGTH_CHECK');
 INSERT INTO dtb_csv (no, csv_id, col, disp_name, rank, rw_flg, status, create_date, update_date, mb_convert_kana_option, size_const_type, error_check_types) VALUES (50, 1, 'price01', '通常価格', 50, 1, 1, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 'n', 'PRICE_LEN', 'NUM_CHECK,MAX_LENGTH_CHECK');
 INSERT INTO dtb_csv (no, csv_id, col, disp_name, rank, rw_flg, status, create_date, update_date, mb_convert_kana_option, size_const_type, error_check_types) VALUES (51, 1, 'price02', '販売価格', 51, 1, 1, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 'n', 'PRICE_LEN', 'NUM_CHECK,MAX_LENGTH_CHECK,EXIST_CHECK');
+/* Added to item 252: INSERT INTO dtb_csv (no, csv_id, col, disp_name, rank, rw_flg, status, create_date, update_date, mb_convert_kana_option, size_const_type, error_check_types) VALUES (252, 1, 'price03', '販売価格', 252, 1, 1, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 'n', 'PRICE_LEN', 'NUM_CHECK,MAX_LENGTH_CHECK,EXIST_CHECK');*/
 INSERT INTO dtb_csv (no, csv_id, col, disp_name, rank, rw_flg, status, create_date, update_date, mb_convert_kana_option, size_const_type, error_check_types) VALUES (52, 1, 'deliv_fee', '送料', 52, 1, 1, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 'n', 'PRICE_LEN', 'NUM_CHECK,MAX_LENGTH_CHECK');
 INSERT INTO dtb_csv (no, csv_id, col, disp_name, rank, rw_flg, status, create_date, update_date, mb_convert_kana_option, size_const_type, error_check_types) VALUES (53, 1, 'point_rate', 'ポイント付与率', 53, 1, 1, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 'n', 'PERCENTAGE_LEN', 'NUM_CHECK,MAX_LENGTH_CHECK');
 INSERT INTO dtb_csv (no, csv_id, col, disp_name, rank, rw_flg, status, create_date, update_date, mb_convert_kana_option, size_const_type, error_check_types) VALUES (54, 1, 'down_filename', 'ダウンロードファイル名', 54, 1, 1, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 'KVa', 'STEXT_LEN', 'SPTAB_CHECK,MAX_LENGTH_CHECK');
@@ -1108,6 +1109,11 @@ INSERT INTO mtb_constants (id, name, rank, remarks) VALUES ('CATEGORY_HEAD', '">
 INSERT INTO mtb_constants (id, name, rank, remarks) VALUES ('START_BIRTH_YEAR', '1970', 139, '生年月日初期選択年');
 INSERT INTO mtb_constants (id, name, rank, remarks) VALUES ('NORMAL_PRICE_TITLE', '"通常価格"', 140, '価格名称');
 INSERT INTO mtb_constants (id, name, rank, remarks) VALUES ('SALE_PRICE_TITLE', '"販売価格"', 141, '価格名称');
+/* Added to the 250th entry: INSERT INTO mtb_constants (id, name, rank, remarks) VALUES ('SPECIAL_PRICE_TITLE', '"特別価格"', 250, '特別価格');
+/* Added to the 251st entry: INSERT INTO mtb_constants (id, name, rank, remarks) VALUES ('OFF_RATE', '"割引率"', 251, '割引率');*/
+/* Added to the 252nd entry: INSERT INTO mtb_constants (id, name, rank, remarks) VALUES ('PERCENT_OFF', '"% OFF!!"', 252, 'パーセントオフ'); */
+/* Added to the 253rd entry: INSERT INTO dtb_csv (no, csv_id, col, disp_name, rank, rw_flg, status, create_date, update_date, mb_convert_kana_option, size_const_type, error_check_types) VALUES (253, 1, 'price03', '販売価格', 253, 1, 1, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 'n', 'PRICE_LEN', 'NUM_CHECK,MAX_LENGTH_CHECK,EXIST_CHECK'); */
+/* Added to the 254th entry: INSERT INTO dtb_csv (no, csv_id, col, disp_name, rank, rw_flg, status, create_date, update_date, mb_convert_kana_option, size_const_type, error_check_types) VALUES (254, 1, 'off_rate', '割引率', 254, 1, 1, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 'n', 'PERCENTAGE_LEN', 'NUM_CHECK,MAX_LENGTH_CHECK,EXIST_CHECK'); */
 INSERT INTO mtb_constants (id, name, rank, remarks) VALUES ('LOG_REALFILE', 'DATA_REALDIR . "logs/site.log"', 142, '標準ログファイル');
 INSERT INTO mtb_constants (id, name, rank, remarks) VALUES ('CUSTOMER_LOG_REALFILE', 'DATA_REALDIR . "logs/customer.log"', 143, '会員ログイン ログファイル');
 INSERT INTO mtb_constants (id, name, rank, remarks) VALUES ('ADMIN_LOG_REALFILE', 'DATA_REALDIR . "logs/admin.log"', 144, '管理機能ログファイル');
@@ -1546,3 +1552,9 @@ INSERT INTO mtb_country (id, name, rank) VALUES (426,'レソト',246);
 INSERT INTO mtb_country (id, name, rank) VALUES (422,'レバノン',247);
 INSERT INTO mtb_country (id, name, rank) VALUES (638,'レユニオン',248);
 INSERT INTO mtb_country (id, name, rank) VALUES (643,'ロシア|ロシア連邦',249);
+/* TODO Add 3 below DONE TODO check necessity*/
+INSERT INTO mtb_constants (id, name, rank, remarks) VALUES ('SPECIAL_PRICE_TITLE', '"特別価格"', 250, '価格名称');
+INSERT INTO mtb_constants (id, name, rank, remarks) VALUES ('OFF_RATE', '"割引率"', 251, '割引率');
+INSERT INTO mtb_constants (id, name, rank, remarks) VALUES ('PERCENT_OFF', '"% OFF!!"', 252, 'パーセントオフ');
+INSERT INTO dtb_csv (no, csv_id, col, disp_name, rank, rw_flg, status, create_date, update_date, mb_convert_kana_option, size_const_type, error_check_types) VALUES (253, 1, 'price03', '販売価格', 252, 1, 1, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 'n', 'PRICE_LEN', 'NUM_CHECK,MAX_LENGTH_CHECK,EXIST_CHECK');
+INSERT INTO dtb_csv (no, csv_id, col, disp_name, rank, rw_flg, status, create_date, update_date, mb_convert_kana_option, size_const_type, error_check_types) VALUES (254, 1, 'price03', '販売価格', 252, 1, 1, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 'n', 'PRICE_LEN', 'NUM_CHECK,MAX_LENGTH_CHECK,EXIST_CHECK');
