@@ -39,19 +39,27 @@
                                 </h3>
                                 <!-- TODO add here DONE-->
                                 <p class="sale_price">
-                                    <!--{$smarty.const.SALE_PRICE_TITLE}-->(税込)： <span class="price"><!--{$arrProduct.price02_min_inctax|n2s}--> 円</span>
+                                    <!--{if $arrProduct.off_rate_all_classes >0}--> <strike> <!--{/if}-->
+                                        <!--{$smarty.const.SALE_PRICE_TITLE}-->(税込)： <span class="price">
+                                    <!--{if $arrProduct.price02_min_inctax == $arrProduct.price02_max_inctax}-->
+                                        <!--{$arrProduct.price02_min_inctax|n2s}-->
+                                    <!--{else}-->
+                                        <!--{$arrProduct.price02_min_inctax|n2s}-->～<!--{$arrProduct.price02_max_inctax|n2s}-->
+                                    <!--{/if}-->
+                                    
+                                    <!--{if $arrProduct.off_rate_all_classes >0}--> </strike> <!--{/if}-->
                                     <!--{if $arrProduct.price03_min_inctax!=NULL}-->
                                         <strong>
                                         <!-- TODO show off_rate in range too DONE -->
+                                        <!--{if $arrProduct.off_rate_all_classes > 0}-->
+                                        <br>
+                                        <!--{$smarty.const.SPECIAL_PRICE_TITLE}-->(税込)：
                                         <!--{$arrProduct.price03_min_inctax|n2s}-->
                                         <!--{if $arrProduct.price03_min_inctax != $arrProduct.price03_max_inctax}-->
                                             ～<!--{$arrProduct.price03_max_inctax|n2s}-->
                                         <!--{/if}-->円 
-                                        <!--{if $arrProduct.off_rate_max != NULL}--> 
-                                            &nbsp;(<!--{if $arrProduct.off_rate_min != NULL}--><!--{$arrProduct.off_rate_min}-->
-                                            <!--{else}-->0<!--{/if}-->
-                                            <!--{if $arrProduct.off_rate_min != $arrProduct.off_rate_max}--> 
-                                            ～<!--{$arrProduct.off_rate_max|h}--><!--{/if}-->                      
+                                        
+                                            <br>(<!--{$arrProduct.off_rate_all_classes}-->
                                             <!--{$smarty.const.PERCENT_OFF}-->)
                                         <!--{/if}-->
                                         </strong>

@@ -97,7 +97,7 @@
 
                 <!--★通常価格★-->
                 <!--{if $arrProduct.price01_min_inctax > 0}-->
-                    <dl class="normal_price">
+                    <dl class="normal_price"><!--{if $arrProduct.off_rate_all_classes >0}--> <strike> <!--{/if}-->
                         <dt><!--{$smarty.const.NORMAL_PRICE_TITLE}-->(税込)：</dt>
                         <dd class="price">
                             <span id="price01_default"><!--{strip}-->
@@ -108,12 +108,12 @@
                                 <!--{/if}-->
                             <!--{/strip}--></span><span id="price01_dynamic"></span>
                             円
-                        </dd>
+                        </dd><!--{if $arrProduct.off_rate_all_classes >0}--> </strike> <!--{/if}-->
                     </dl>
                 <!--{/if}-->
 
                 <!--★販売価格★-->
-                <dl class="sale_price">
+                <dl class="sale_price"><!--{if $arrProduct.off_rate_all_classes >0}--> <strike> <!--{/if}-->
                     <dt><!--{$smarty.const.SALE_PRICE_TITLE}-->(税込)：</dt>
                     <dd class="price">
                         <span id="price02_default"><!--{strip}-->
@@ -124,7 +124,7 @@
                             <!--{/if}-->
                         <!--{/strip}--></span><span id="price02_dynamic"></span>
                         円
-                    </dd>
+                    </dd><!--{if $arrProduct.off_rate_all_classes >0}--> </strike> <!--{/if}-->
                 </dl>
                                 
                 <!-- TODO Show price03 in detail pages DONE-->
@@ -142,7 +142,7 @@
                     % off!!)
                 -->
                 <!--★特別価格★--><!--★割引率★-->
-                <!--{if $arrProduct.price03_max_inctax != NULL}-->
+                <!--{if $arrProduct.off_rate_all_classes >0}-->
                 <dl class="sale_price">
                     <dt><!--{$smarty.const.SPECIAL_PRICE_TITLE}-->(税込)：</dt>
                     <dd class="price">                        
@@ -154,18 +154,11 @@
                                 <!-- LEARN what strip means -->
                             <!--{/strip}--><!-- LEARN what the next line is here for = to dynamically change the price when categories are selected-->
                             </span><span id="price03_dynamic"></span>円
-                            
-                            <!-- TODO show off_rate in range too DONE -->
-                            <!--{if $arrProduct.off_rate_max!=NULL}-->
                                 &nbsp;(
                                 <span id="off_rate_default">                  
-                                    <!--{if $arrProduct.off_rate_min!=NULL}--><!--{$arrProduct.off_rate_min}-->
-                                    <!--{else}-->0<!--{/if}-->
-                                    <!--{if $arrProduct.off_rate_min!=$arrProduct.off_rate_max}--> 
-                                    ～<!--{$arrProduct.off_rate_max|h}--><!--{/if}-->        
+                                    <!--{$arrProduct.off_rate_all_classes}-->     
                                 </span><span id="off_rate_dynamic"></span>
                                 <!--{$smarty.const.PERCENT_OFF}-->)
-                            <!--{/if}-->                        
                     </dd>
                 </dl>
                 <!--{/if}-->

@@ -264,8 +264,8 @@ class SC_DB_DBFactory
                     ,T4.price01_max
                     ,T4.price02_min
                     ,T4.price02_max
-                    ,T4.price03_min
-                    ,T4.price03_max
+                    ,T4.price02_min-T4.price02_min*off_rate_all_classes/100 AS price03_min
+                    ,T4.price02_max-T4.price02_max*off_rate_all_classes/100 AS price03_max
                     ,T4.off_rate_min
                     ,T4.off_rate_max
                     ,T4.stock_min
@@ -284,8 +284,6 @@ class SC_DB_DBFactory
                             ,MAX(price01) AS price01_max
                             ,MIN(price02) AS price02_min
                             ,MAX(price02) AS price02_max
-                            ,MIN(price02-price02*off_rate/100) AS price03_min
-                            ,MAX(price02-price02*off_rate/100) AS price03_max
                             ,MIN(off_rate) AS off_rate_min
                             ,MAX(off_rate) AS off_rate_max
                             ,MIN(stock) AS stock_min

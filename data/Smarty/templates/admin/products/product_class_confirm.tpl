@@ -98,7 +98,7 @@
                             <!--{assign var=key value="price02"}-->
                             <td class="right"><!--{$arrForm[$key].value[$index]|h}--></td>
                             <!-- TODO add below DONE -->
-                            <!--{assign var=key value="off_rate"}-->
+                            <!--{assign var=key value="off_rate_all_classes"}-->
                             <td class="right"><!--{if $arrForm[$key].value[$index]>0}--><!--{$arrForm[$key].value[$index]}--></td><!--{/if}-->
                             <!--{if $smarty.const.OPTION_PRODUCT_TAX_RULE}-->
                             <!--{assign var=key value="tax_rate"}-->

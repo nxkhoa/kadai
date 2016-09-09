@@ -211,15 +211,15 @@
                 <span class="attention"><!--{$arrErr.price02}--></span>
                 <input type="text" name="price02" value="<!--{$arrForm.price02|h}-->" size="6" class="box6" maxlength="<!--{$smarty.const.PRICE_LEN}-->" style="<!--{if $arrErr.price02 != ""}-->background-color: <!--{$smarty.const.ERR_COLOR}-->;<!--{/if}-->"/>円
                 <span class="attention"> (半角数字で入力)</span>
+                <span class="attention"> ※この商品のすべての規格に適用されます。</span>
             </td>
         </tr>
         <tr>
             <th><!--{$smarty.const.OFF_RATE}--></th>
             <td>
-                <span class="attention"><!--{$arrErr.off_rate}--></span>
-                <input type="text" name="off_rate" value="<!--{$arrForm.off_rate|h}-->" size="6" class="box6" maxlength="<!--{$smarty.const.PERCENTAGE_LEN}-->" style="<!--{if $arrErr.off_rate != ""}-->background-color: <!--{$smarty.const.ERR_COLOR}-->;<!--{/if}-->"/>％
+                <span class="attention"><!--{$arrErr.off_rate_all_classes}--></span>
+                <input type="text" name="off_rate_all_classes" value="<!--{$arrForm.off_rate_all_classes|h}-->" size="6" class="box6" maxlength="<!--{$smarty.const.PERCENTAGE_LEN}-->" style="<!--{if $arrErr.off_rate_all_classes != ""}-->background-color: <!--{$smarty.const.ERR_COLOR}-->;<!--{/if}-->"/>％
                 <span class="attention"> (半角数字で入力)</span>
-                <!--{* →割引率　<input type="text" name="off_rate" disabled="disabled" value="<!--{if $arrForm.price03 > 0 }--><!--{$arrForm.price03/$arrForm.price02*-100+100|h}--><!--{else}-->0<!--{/if}-->" size="2" class="box6" maxlength="<!--{$smarty.const.PRICE_LEN}-->" style="background-color: #DDDDDD;"/>%*}-->
             </td>
         </tr>
         
@@ -248,16 +248,14 @@
         <tr>
             <th><!--{$smarty.const.OFF_RATE}--></th>
             <td>
-                <span class="attention"><!--{$arrErr.off_rate_all_models}--></span>
-                <input type="text" name="off_rate" value="<!--{$arrForm.off_rate_all_models|h}-->" size="6" class="box6" maxlength="<!--{$smarty.const.PERCENTAGE_LEN}-->" style="<!--{if $arrErr.off_rate_all_models != ""}-->background-color: <!--{$smarty.const.ERR_COLOR}-->;<!--{/if}-->"/>％
+                <span class="attention"><!--{$arrErr.off_rate_all_classes}--></span>
+                <input type="text" name="off_rate_all_classes" value="<!--{$arrForm.off_rate_all_classes|h}-->" size="6" class="box6" maxlength="<!--{$smarty.const.PERCENTAGE_LEN}-->" style="<!--{if $arrErr.off_rate_all_classes != ""}-->background-color: <!--{$smarty.const.ERR_COLOR}-->;<!--{/if}-->"/>％
                 <span class="attention"> (半角数字で入力)</span>
-                <span class="attention"> ※この商品のすべての規格に反映されます。</span>
+                <span class="attention"> ※この商品のすべての規格に適用されます。</span>
                 
             </td>
         </tr>
-        
         <!--{/if}-->
-
         <tr>
             <th>商品送料</th>
             <td>

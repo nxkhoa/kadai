@@ -206,7 +206,7 @@
                 <th><!--{$smarty.const.NORMAL_PRICE_TITLE}-->(円)</th>
                 <th><!--{$smarty.const.SALE_PRICE_TITLE}-->(円)<span class="attention">*</span></th>
                 <!-- TODO add below DONE-->
-                <th><!--{$smarty.const.OFF_RATE}-->(％)</th>
+                <!--{*th><!--{$smarty.const.OFF_RATE}-->(％)</th*}-->
                 <!--{if $smarty.const.OPTION_PRODUCT_TAX_RULE}-->
                 <th>消費税率(%)<span class="attention">*</span></th>
                 <!--{/if}-->
@@ -280,13 +280,13 @@
                         <!--{/if}-->
                         <input type="text" name="<!--{$key}-->[<!--{$index}-->]" value="<!--{$arrForm[$key].value[$index]|h}-->" size="6" class="box6" maxlength="<!--{$arrForm[$key].length}-->" <!--{if $arrErr[$key][$index] != ""}--><!--{sfSetErrorStyle}--><!--{/if}--> id="<!--{$key}-->_<!--{$index}-->" />
                     </td>
-                    <td class="center">
-                        <!--{assign var=key value="off_rate"}-->
+                    <!--{*td class="center">
+                        <!--{assign var=key value="off_rate_all_classes"}-->
                         <!--{if $arrErr[$key][$index]}-->
                             <span class="attention"><!--{$arrErr[$key][$index]}--></span>
                         <!--{/if}-->
-                        <input type="text" name="<!--{$key}-->[<!--{$index}-->]" value="<!--{$arrForm[$key].value[$index]|h}-->" size="6" class="box6" maxlength="<!--{$arrForm[$key].length}-->" <!--{if $arrErr[$key][$index] != ""}--><!--{sfSetErrorStyle}--><!--{/if}--> id="<!--{$key}-->_<!--{$index}-->" />
-                    </td>
+                        <input type="text" name="<!--{$key}-->[<!--{$index}-->]" disabled="disabled" value="<!--{$arrForm[$key].value[$index]|h}-->" size="6" class="box6" maxlength="<!--{$arrForm[$key].length}-->" <!--{if $arrErr[$key][$index] != ""}--><!--{sfSetErrorStyle}--><!--{/if}--> id="<!--{$key}-->_<!--{$index}-->" />
+                    </td*}-->
                     <!--{if $smarty.const.OPTION_PRODUCT_TAX_RULE}-->
                     <td class="center">
                         <!--{assign var=key value="tax_rate"}-->

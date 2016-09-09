@@ -532,9 +532,9 @@
         // 割引率　TODO add here DONE
         var $off_rate_default = $form.find('[id^=off_rate_default]');
         var $off_rate_dynamic = $form.find('[id^=off_rate_dynamic]');
-        if (classcat2 && typeof classcat2.off_rate !== 'undefined' && String(classcat2.off_rate).length >= 1) {
+        if (classcat2 && typeof classcat2.off_rate !== 'undefined' && String(classcat2.off_rate_all_classes).length >= 1) {
             
-            $off_rate_dynamic.text(classcat2.off_rate).show();
+            $off_rate_dynamic.text(classcat2.off_rate_all_classes).show();
             $off_rate_default.hide();
         } else {
             $off_rate_dynamic.hide();

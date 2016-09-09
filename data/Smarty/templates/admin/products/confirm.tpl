@@ -126,8 +126,8 @@
             <tr> <!-- TODO add here DONE-->
                 <th><!--{$smarty.const.OFF_RATE}--></th>
                 <td>
-                    <!--{if strlen($arrForm.off_rate) > 0}--><!--{$arrForm.off_rate|h}-->％<!--{/if}-->
-                    　　→適応後の価格：　<!--{$arrForm.price02-$arrForm.price02*$arrForm.off_rate/100|h}--> 円
+                    <!--{if strlen($arrForm.off_rate_all_classes) > 0}--><!--{$arrForm.off_rate_all_classes|h}-->％<!--{/if}-->
+                    　　→適応後の価格：　<!--{$arrForm.price02-$arrForm.price02*$arrForm.off_rate_all_classes/100|h}--> 円
                 </td>
             </tr>
             <!--{if $smarty.const.OPTION_PRODUCT_TAX_RULE ==1}-->
@@ -146,6 +146,14 @@
                     <!--{else}-->
                         <!--{$arrForm.stock|h}-->
                     <!--{/if}-->
+                </td>
+            </tr>
+        <!--{else}-->
+        <tr> <!-- TODO add here DONE-->
+                <th><!--{$smarty.const.OFF_RATE}--></th>
+                <td>
+                    <!--{if strlen($arrForm.off_rate_all_classes) > 0}--><!--{$arrForm.off_rate_all_classes|h}-->％<!--{/if}-->
+                    <span class="attention"> ※この商品のすべての規格に適用されます。</span>
                 </td>
             </tr>
         <!--{/if}-->

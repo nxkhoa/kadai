@@ -171,7 +171,7 @@
                         <a href="<!--{$smarty.const.P_DETAIL_URLPATH}--><!--{$arrProduct.product_id|u}-->"><!--{$arrProduct.name|h}--></a>
                     </h3>
                     <!--★価格★-->
-                    <div class="pricebox sale_price">
+                    <div class="pricebox sale_price"><!--{if $arrProduct.off_rate_all_classes >0}--> <strike> <!--{/if}-->
                         <!--{$smarty.const.SALE_PRICE_TITLE}-->(税込)：
                         <span class="price">
                             <span id="price02_default_<!--{$id}-->"><!--{strip}-->
@@ -181,11 +181,11 @@
                                     <!--{$arrProduct.price02_min_inctax|n2s}-->～<!--{$arrProduct.price02_max_inctax|n2s}-->
                                 <!--{/if}-->
                             </span><!--{/strip}--><span id="price02_dynamic_<!--{$id}-->"></span>
-                            円</span>
+                            円</span><!--{if $arrProduct.off_rate_all_classes >0}--> </strike> <!--{/if}-->
                     </div>
                     <!-- TODO Show price03 in list pages DONE-->
                     <!--★特別価格★--><!--★割引率★-->
-                    <!--{if $arrProduct.price03_min_inctax != NULL}-->
+                    <!--{if $arrProduct.off_rate_all_classes >0}-->
                     <dl class="sale_price"><strong>                        
                         <dt><!--{$smarty.const.SPECIAL_PRICE_TITLE}-->(税込)：</dt>
                         <dd class="price">
@@ -196,13 +196,7 @@
                                 <!--{/if}-->
                             </span><span id="price03_dynamic"></span>円&nbsp;(
                             <span id="off_rate_default">
-                                <!--{if $arrProduct.off_rate_max != NULL}--> 
-                                    <!--{if $arrProduct.off_rate_min != NULL}--><!--{$arrProduct.off_rate_min}-->
-                                    <!--{else}-->0<!--{/if}-->
-                                    <!--{if $arrProduct.off_rate_min != $arrProduct.off_rate_max}--> 
-                                    ～<!--{$arrProduct.off_rate_max|h}--><!--{/if}-->                      
-                                    
-                                <!--{/if}-->
+                            <!--{$arrProduct.off_rate_all_classes|h}-->      
                             <!--{/strip}--></span><span id="off_rate_dynamic"></span>
                             <!--{$smarty.const.PERCENT_OFF}-->)
                         </dd>

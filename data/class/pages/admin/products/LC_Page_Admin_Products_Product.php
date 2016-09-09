@@ -325,13 +325,13 @@ class LC_Page_Admin_Products_Product extends LC_Page_Admin_Products_Ex
             $objFormParam->addParam('商品コード', 'product_code', STEXT_LEN, 'KVa', array('EXIST_CHECK', 'SPTAB_CHECK', 'MAX_LENGTH_CHECK'));
             $objFormParam->addParam(NORMAL_PRICE_TITLE, 'price01', PRICE_LEN, 'n', array('NUM_CHECK', 'MAX_LENGTH_CHECK', 'ZERO_START'));
             $objFormParam->addParam(SALE_PRICE_TITLE, 'price02', PRICE_LEN, 'n', array('EXIST_CHECK', 'NUM_CHECK', 'MAX_LENGTH_CHECK', 'ZERO_START'));
-            $objFormParam->addParam(OFF_RATE, 'off_rate', PERCENTAGE_LEN, 'n', array('NUM_CHECK', 'MAX_LENGTH_CHECK', 'ZERO_START'));
             if (OPTION_PRODUCT_TAX_RULE) {
                 $objFormParam->addParam('消費税率', 'tax_rate', PERCENTAGE_LEN, 'n', array('EXIST_CHECK', 'NUM_CHECK', 'MAX_LENGTH_CHECK'));
             }
             $objFormParam->addParam('在庫数', 'stock', AMOUNT_LEN, 'n', array('SPTAB_CHECK', 'NUM_CHECK', 'MAX_LENGTH_CHECK', 'ZERO_START'));
             $objFormParam->addParam('在庫無制限', 'stock_unlimited', INT_LEN, 'n', array('SPTAB_CHECK', 'NUM_CHECK', 'MAX_LENGTH_CHECK'));
         }
+        $objFormParam->addParam(OFF_RATE, 'off_rate_all_classes', PERCENTAGE_LEN, 'n', array('NUM_CHECK', 'MAX_LENGTH_CHECK', 'ZERO_START'));
         $objFormParam->addParam('商品送料', 'deliv_fee', PRICE_LEN, 'n', array('NUM_CHECK', 'SPTAB_CHECK', 'MAX_LENGTH_CHECK', 'ZERO_START'));
         $objFormParam->addParam('ポイント付与率', 'point_rate', PERCENTAGE_LEN, 'n', array('EXIST_CHECK', 'NUM_CHECK', 'SPTAB_CHECK', 'MAX_LENGTH_CHECK', 'ZERO_START'));
         $objFormParam->addParam('発送日目安', 'deliv_date_id', INT_LEN, 'n', array('NUM_CHECK'));
@@ -486,6 +486,10 @@ class LC_Page_Admin_Products_Product extends LC_Page_Admin_Products_Ex
         // TODO check if off rate is from 0 to 99
         if ($arrForm['off_rate']!=NULL) {
             $objErr->doFunc(array(OFF_RATE, 'off_rate', 1, 2), array('GREATER_CHECK'));
+        }
+        // TODO check if off rate all classes is from 0 to 99
+        if ($arrForm['off_rate_all_classes']!=NULL) {
+            $objErr->doFunc(array(OFF_RATE, 'off_rate_all_classes', 1, 2), array('NUM_RANGE_CHECK'));
         }
 
         $arrErr = array_merge((array) $arrErr, (array) $objErr->arrErr);
@@ -865,7 +869,6 @@ class LC_Page_Admin_Products_Product extends LC_Page_Admin_Products_Ex
                     product_code,
                     price01,
                     price02,
-                    off_rate,
                     deliv_fee,
                     stock,
                     stock_unlimited,
@@ -1012,7 +1015,7 @@ __EOF__;
         $objDb = new SC_Helper_DB_Ex();
 
         // 配列の添字を定義
-        $checkArray = array('name', 'status',
+        $checkArray = array('name', 'status', 'off_rate_all_classes',
                             'main_list_comment', 'main_comment',
                             'deliv_fee', 'comment1', 'comment2', 'comment3',
                             'comment4', 'comment5', 'comment6',
@@ -1022,6 +1025,7 @@ __EOF__;
         // INSERTする値を作成する。
         $sqlval['name'] = $arrList['name'];
         $sqlval['status'] = $arrList['status'];
+        $sqlval['off_rate_all_classes'] = $arrList['off_rate_all_classes'];
         $sqlval['main_list_comment'] = $arrList['main_list_comment'];
         $sqlval['main_comment'] = $arrList['main_comment'];
         $sqlval['comment1'] = $arrList['comment1'];
@@ -1115,7 +1119,10 @@ __EOF__;
                         $objImage->deleteImage($arrRet[$keyname], $objUpFile->save_dir);
                     }
                 }
-            }
+            }            
+            // TODO insert here DONE
+            $sqlval['off_rate_all_classes'] = $arrList['off_rate_all_classes'];
+            
             $objDownFile->deleteDBDownFile($arrRet);
             // UPDATEの実行
             $where = 'product_id = ?';
@@ -1165,7 +1172,6 @@ __EOF__;
     {
         $objQuery =& SC_Query_Ex::getSingletonInstance();
         $objDb = new SC_Helper_DB_Ex();
-
         // 配列の添字を定義
         $checkArray = array('product_class_id', 'product_id', 'product_code', 'stock', 'stock_unlimited', 'price01', 'price02', 'off_rate', 'sale_limit', 'deliv_fee', 'point_rate', 'product_type_id', 'down_filename', 'down_realfilename');
         $sqlval = SC_Utils_Ex::sfArrayIntersectKeys($arrList, $checkArray);
@@ -1200,7 +1206,7 @@ __EOF__;
     {
         $objQuery =& SC_Query_Ex::getSingletonInstance();
         $sqlval = array();
-
+        // BOOKMARK var_dump($arrList['off_rate_all_classes']);
         $sqlval['deliv_fee'] = $arrList['deliv_fee'];
         $sqlval['point_rate'] = $arrList['point_rate'];
         $sqlval['sale_limit'] = $arrList['sale_limit'];

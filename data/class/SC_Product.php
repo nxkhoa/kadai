@@ -137,8 +137,7 @@ class SC_Product
             ,price02_max
             ,price03_min
             ,price03_max
-            ,off_rate_min
-            ,off_rate_max
+            ,off_rate_all_classes
             ,stock_min
             ,stock_max
             ,stock_unlimited_min
@@ -306,25 +305,24 @@ __EOS__;
                     : '';
                 // TODO what responds to these lines???
                 // TODO add here DONE
-                $arrClassCats2['off_rate']
-                    = strlen($arrProductsClass['off_rate'])
-                    ? number_format($arrProductsClass['off_rate'])
+                $arrClassCats2['off_rate_all_classes']
+                    = strlen($arrProductsClass['off_rate_all_classes'])
+                    ? number_format($arrProductsClass['off_rate_all_classes'])
                     : NULL;
                 // TODO add here DONE
                 $arrClassCats2['price03']
-                    = strlen($arrProductsClass['off_rate'])
-                    ? number_format(SC_Helper_TaxRule_Ex::sfCalcIncTax($arrProductsClass['price02']-$arrProductsClass['price02']*$arrProductsClass['off_rate']/100, $productId, $arrProductsClass['product_class_id']))
+                    = strlen($arrProductsClass['off_rate_all_classes'])
+                    ? number_format(SC_Helper_TaxRule_Ex::sfCalcIncTax($arrProductsClass['price02']-$arrProductsClass['price02']*$arrProductsClass['off_rate_all_classes']/100, $productId, $arrProductsClass['product_class_id']))
                     : NULL;
                 
                 // TODO modify here DONE
                 // ポイント
                 $real_price 
-                    = strlen($arrProductsClass['off_rate'])
-                    ?$arrProductsClass['price02']-$arrProductsClass['price02']*$arrProductsClass['off_rate']/100
+                    = strlen($arrProductsClass['off_rate_all_classes'])
+                    ? $arrProductsClass['price02']-$arrProductsClass['price02']*$arrProductsClass['off_rate_all_classes']/100
                     : $arrProductsClass['price02'];
                 $arrClassCats2['point']
                     = number_format(SC_Utils_Ex::sfPrePoint($real_price, $arrProductsClass['point_rate']));
-
                 // 商品コード
                 $arrClassCats2['product_code'] = $arrProductsClass['product_code'];
                 // 商品規格ID
@@ -368,7 +366,6 @@ __EOS__;
             T1.sale_limit,
             T1.price01,
             T1.price02,
-            T1.off_rate,
             T1.point_rate,
             T1.product_code,
             T1.product_class_id,
@@ -385,10 +382,13 @@ __EOS__;
             dtb_classcategory2.name AS classcategory_name2,
             dtb_classcategory2.rank AS rank2,
             dtb_class2.name AS class_name2,
-            dtb_class2.class_id AS class_id2
+            dtb_class2.class_id AS class_id2,
+            T5.off_rate_all_classes
 __EOS__;
         $table = <<< __EOS__
             dtb_products_class T1
+            LEFT JOIN dtb_products T5
+                ON T5.product_id = T1.product_id
             LEFT JOIN dtb_classcategory T3
                 ON T1.classcategory_id1 = T3.classcategory_id
             LEFT JOIN dtb_class T4
@@ -430,8 +430,12 @@ __EOS__;
             $arrProduct['price02_inctax'] = SC_Helper_TaxRule_Ex::sfCalcIncTax($arrProduct['price02'], $arrProduct['product_id'], $productClassId);        
         }
         // TODO add here DONE
-        if (!SC_Utils_Ex::isBlank($arrProduct['off_rate'])) {
-            $arrProduct['price03_inctax'] = SC_Helper_TaxRule_Ex::sfCalcIncTax($arrProduct['price02']-$arrProduct['price02']*$arrProduct['off_rate']/100, $arrProduct['product_id'], $productClassId);        
+        if (!SC_Utils_Ex::isBlank($arrProduct['off_rate_all_classes'])) {
+            $arrProduct['price03_inctax'] = SC_Helper_TaxRule_Ex::sfCalcIncTax($arrProduct['price02']-$arrProduct['price02']*$arrProduct['off_rate_all_classes']/100, $arrProduct['product_id'], $productClassId);        
+        }
+        // TODO add here DONE
+        if (!SC_Utils_Ex::isBlank($arrProduct['off_rate_all_classes'])) {
+            $arrProduct['price03'] = $arrProduct['price02']-$arrProduct['price02']*$arrProduct['off_rate_all_classes']/100;        
         }
         return $arrProduct;
     }
@@ -449,7 +453,7 @@ __EOS__;
             return array();
         }
         $objQuery =& SC_Query_Ex::getSingletonInstance();
-        $where = 'product_id IN (' . SC_Utils_Ex::repeatStrWithSeparator('?', count($productIds)) . ')';
+        $where = 'T1.product_id IN (' . SC_Utils_Ex::repeatStrWithSeparator('?', count($productIds)) . ')';
         if (!$has_deleted) {
             $where .= ' AND T1.del_flg = 0';
         }
@@ -690,7 +694,6 @@ __EOS__;
                 dtb_products_class.sale_limit,
                 dtb_products_class.price01,
                 dtb_products_class.price02,
-                dtb_products_class.off_rate,
                 dtb_products_class.deliv_fee,
                 dtb_products_class.point_rate,
                 dtb_products_class.down_filename,
