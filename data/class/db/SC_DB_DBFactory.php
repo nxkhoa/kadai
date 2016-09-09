@@ -284,8 +284,8 @@ class SC_DB_DBFactory
                             ,MAX(price01) AS price01_max
                             ,MIN(price02) AS price02_min
                             ,MAX(price02) AS price02_max
-                            ,MIN(price03) AS price03_min
-                            ,MAX(price03) AS price03_max
+                            ,MIN(price02-price02*off_rate/100) AS price03_min
+                            ,MAX(price02-price02*off_rate/100) AS price03_max
                             ,MIN(off_rate) AS off_rate_min
                             ,MAX(off_rate) AS off_rate_max
                             ,MIN(stock) AS stock_min

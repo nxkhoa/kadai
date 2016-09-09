@@ -306,20 +306,21 @@ __EOS__;
                     : '';
                 // TODO what responds to these lines???
                 // TODO add here DONE
-                $arrClassCats2['price03']
-                    = strlen($arrProductsClass['price03'])
-                    ? number_format(SC_Helper_TaxRule_Ex::sfCalcIncTax($arrProductsClass['price03'], $productId, $arrProductsClass['product_class_id']))
+                $arrClassCats2['off_rate']
+                    = strlen($arrProductsClass['off_rate'])
+                    ? number_format($arrProductsClass['off_rate'])
                     : NULL;
                 // TODO add here DONE
-                $arrClassCats2['off_rate']
-                    = strlen($arrProductsClass['price03'])
-                    ? number_format($arrProductsClass['price03']/$arrProductsClass['price02']*-100+100, 0)
+                $arrClassCats2['price03']
+                    = strlen($arrProductsClass['off_rate'])
+                    ? number_format(SC_Helper_TaxRule_Ex::sfCalcIncTax($arrProductsClass['price02']-$arrProductsClass['price02']*$arrProductsClass['off_rate']/100, $productId, $arrProductsClass['product_class_id']))
                     : NULL;
+                
                 // TODO modify here DONE
                 // ポイント
                 $real_price 
-                    = strlen($arrProductsClass['price03'])
-                    ? $arrProductsClass['price03']
+                    = strlen($arrProductsClass['off_rate'])
+                    ?$arrProductsClass['price02']-$arrProductsClass['price02']*$arrProductsClass['off_rate']/100
                     : $arrProductsClass['price02'];
                 $arrClassCats2['point']
                     = number_format(SC_Utils_Ex::sfPrePoint($real_price, $arrProductsClass['point_rate']));
@@ -367,7 +368,7 @@ __EOS__;
             T1.sale_limit,
             T1.price01,
             T1.price02,
-            T1.price03,
+            T1.off_rate,
             T1.point_rate,
             T1.product_code,
             T1.product_class_id,
@@ -429,8 +430,12 @@ __EOS__;
             $arrProduct['price02_inctax'] = SC_Helper_TaxRule_Ex::sfCalcIncTax($arrProduct['price02'], $arrProduct['product_id'], $productClassId);        
         }
         // TODO add here DONE
-        if (!SC_Utils_Ex::isBlank($arrProduct['price03'])) {
-            $arrProduct['price03_inctax'] = SC_Helper_TaxRule_Ex::sfCalcIncTax($arrProduct['price03'], $arrProduct['product_id'], $productClassId);        
+        if (!SC_Utils_Ex::isBlank($arrProduct['off_rate'])) {
+            $arrProduct['price03_inctax'] = SC_Helper_TaxRule_Ex::sfCalcIncTax($arrProduct['price02']-$arrProduct['price02']*$arrProduct['off_rate']/100, $arrProduct['product_id'], $productClassId);        
+        }
+        // TODO add here DONE
+        if (!SC_Utils_Ex::isBlank($arrProduct['off_rate'])) {
+            $arrProduct['price03'] = $arrProduct['price02']-$arrProduct['price02']*$arrProduct['off_rate']/100;        
         }
         return $arrProduct;
     }

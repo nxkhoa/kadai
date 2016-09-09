@@ -261,16 +261,7 @@ function lfnDispChange(){
                                 <!--{if $arrProducts[cnt].price02_min != $arrProducts[cnt].price02_max}-->
                                     <br />～ <!--{$arrProducts[cnt].price02_max|n2s}-->
                                 <!--{/if}-->            </td>
-                            <!--{* 特別価格 *} {*TODO add below UNDONE -->
-                            <td rowspan="2" class="right">
-                                <!--{$arrProducts[cnt].price03_min|n2s}-->
-                                <!--{if $arrProducts[cnt].price03_min != $arrProducts[cnt].price03_max}-->
-                                    <br />～ <!--{$arrProducts[cnt].price03_max|n2s}-->
-                                <!--{/if}-->            </td>
-                            <!--{* 割引率 *} {*TODO add below DONE -->
-                            <td rowspan="2" class="right">
-                                <!--{$arrProducts[cnt].off_rate|h}-->
-                                        </td>
+                           
                             <!--{* 商品名 *}-->
                             <td><!--{$arrProducts[cnt].name|h}--></td>
                             <!--{* 在庫 *}-->

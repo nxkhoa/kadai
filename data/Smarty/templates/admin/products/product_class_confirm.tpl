@@ -98,10 +98,8 @@
                             <!--{assign var=key value="price02"}-->
                             <td class="right"><!--{$arrForm[$key].value[$index]|h}--></td>
                             <!-- TODO add below DONE -->
-                            <!--{assign var=key3 value="price03"}-->
-                            <td class="right"><!--{$arrForm[$key3].value[$index]|h}--></td>
-                            <!--{*assign var=key value="off_rate"*}-->
-                            <td class="right"><!--{if $arrForm[$key3].value[$index]>0}--><!--{$arrForm[$key3].value[$index]/$arrForm[$key].value[$index]*-100+100|string_format:"%d"}--></td><!--{/if}-->
+                            <!--{assign var=key value="off_rate"}-->
+                            <td class="right"><!--{if $arrForm[$key].value[$index]>0}--><!--{$arrForm[$key].value[$index]}--></td><!--{/if}-->
                             <!--{if $smarty.const.OPTION_PRODUCT_TAX_RULE}-->
                             <!--{assign var=key value="tax_rate"}-->
                             <td class="right"><!--{$arrForm[$key].value[$index]|h}--></td>

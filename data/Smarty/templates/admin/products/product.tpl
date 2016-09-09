@@ -213,16 +213,15 @@
                 <span class="attention"> (半角数字で入力)</span>
             </td>
         </tr>
-        <--{*
-        tr>
-            <th><!--{$smarty.const.SPECIAL_PRICE_TITLE}--></th>
+        <tr>
+            <th><!--{$smarty.const.OFF_RATE}--></th>
             <td>
-                <span class="attention"><!--{$arrErr.price03}--></span>
-                <input type="text" name="price03" value="<!--{$arrForm.price03|h}-->" size="6" class="box6" maxlength="<!--{$smarty.const.PRICE_LEN}-->" style="<!--{if $arrErr.price03 != ""}-->background-color: <!--{$smarty.const.ERR_COLOR}-->;<!--{/if}-->"/>円
+                <span class="attention"><!--{$arrErr.off_rate}--></span>
+                <input type="text" name="off_rate" value="<!--{$arrForm.off_rate|h}-->" size="6" class="box6" maxlength="<!--{$smarty.const.PERCENTAGE_LEN}-->" style="<!--{if $arrErr.off_rate != ""}-->background-color: <!--{$smarty.const.ERR_COLOR}-->;<!--{/if}-->"/>％
                 <span class="attention"> (半角数字で入力)</span>
-                --> 割引率　<input type="text" name="off_rate" disabled="disabled" value="<!--{if $arrForm.price03 > 0 }--><!--{$arrForm.price03/$arrForm.price02*-100+100|h}--><!--{else}-->0<!--{/if}-->" size="2" class="box6" maxlength="<!--{$smarty.const.PRICE_LEN}-->" style="background-color: #DDDDDD;"/>%
+                <!--{* →割引率　<input type="text" name="off_rate" disabled="disabled" value="<!--{if $arrForm.price03 > 0 }--><!--{$arrForm.price03/$arrForm.price02*-100+100|h}--><!--{else}-->0<!--{/if}-->" size="2" class="box6" maxlength="<!--{$smarty.const.PRICE_LEN}-->" style="background-color: #DDDDDD;"/>%*}-->
             </td>
-        </tr*}-->
+        </tr>
         
         
         

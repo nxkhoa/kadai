@@ -198,7 +198,7 @@ class LC_Page_Admin_Products_ProductClass extends LC_Page_Admin_Ex
         $objFormParam->addParam(NORMAL_PRICE_TITLE, 'price01', PRICE_LEN, 'n', array('NUM_CHECK', 'MAX_LENGTH_CHECK'));
         $objFormParam->addParam(SALE_PRICE_TITLE, 'price02', PRICE_LEN, 'n', array('NUM_CHECK', 'MAX_LENGTH_CHECK'));
         // TODO add SPECIAL_PRICE_TITLE here!! DONE TODO confirm if functioning
-        $objFormParam->addParam(SPECIAL_PRICE_TITLE, 'price03', PRICE_LEN, 'n', array('NUM_CHECK', 'MAX_LENGTH_CHECK'));
+        $objFormParam->addParam(SPECIAL_PRICE_TITLE, 'off_rate', PERCENTAGE_LEN, 'n', array('NUM_CHECK', 'MAX_LENGTH_CHECK'));
         if (OPTION_PRODUCT_TAX_RULE) {
             $objFormParam->addParam('消費税率', 'tax_rate', PERCENTAGE_LEN, 'n', array('NUM_CHECK', 'MAX_LENGTH_CHECK'));
         }
@@ -772,7 +772,7 @@ __EOF__;
     public function getProductsClass($product_id)
     {
         $objQuery =& SC_Query_Ex::getSingletonInstance();
-        $col = 'product_code, price01, price02, price03, off_rate, stock, stock_unlimited, sale_limit, deliv_fee, point_rate';
+        $col = 'product_code, price01, price02, off_rate, stock, stock_unlimited, sale_limit, deliv_fee, point_rate';
         $where = 'product_id = ? AND classcategory_id1 = 0 AND classcategory_id2 = 0';
 
         return $objQuery->getRow($col, 'dtb_products_class', $where, array($product_id));
