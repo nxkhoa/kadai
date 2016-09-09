@@ -168,7 +168,7 @@ class LC_Page_Admin_Contents extends LC_Page_Admin_Ex
                 break;
         }
         // TODO News appearing to admin should include expired DONE
-        $this->arrNews = $objNews->getList(true);
+        $this->arrNews = $objNews->getList($include_expiry = true);
         $this->line_max = count($this->arrNews);
 
         $this->arrForm = $objFormParam->getFormParamList();
@@ -253,10 +253,9 @@ class LC_Page_Admin_Contents extends LC_Page_Admin_Ex
      * @return string 登録日を示す文字列
      */
     public function getExpiryDate($arrPost)
-    {
-        $expiryDate = $arrPost['expiry_year'] .'/'. $arrPost['expiry_month'] .'/'. $arrPost['expiry_day'];
+    {   
         // TODO if expiry date is null, then return NULL for writing to DB DONE NOTE: if "NULL" instead of NULL then won't work
-        return strlen($expiryDate) == 2 ? NULL : $expiryDate;
+        return $arrPost['expiry_year'] && $arrPost['expiry_year'] && $arrPost['expiry_year'] ? $arrPost['expiry_year'] .'/'. $arrPost['expiry_month'] .'/'. $arrPost['expiry_day'] : NULL;
     }
 
     /**

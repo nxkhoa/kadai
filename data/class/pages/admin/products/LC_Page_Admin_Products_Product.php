@@ -1120,8 +1120,6 @@ __EOF__;
                     }
                 }
             }            
-            // TODO insert here DONE
-            $sqlval['off_rate_all_classes'] = $arrList['off_rate_all_classes'];
             
             $objDownFile->deleteDBDownFile($arrRet);
             // UPDATEの実行
