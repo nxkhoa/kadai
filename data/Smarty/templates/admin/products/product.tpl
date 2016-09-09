@@ -243,6 +243,19 @@
                 <input type="checkbox" name="stock_unlimited" value="1" <!--{if $arrForm.stock_unlimited == "1"}-->checked<!--{/if}--> onclick="eccube.checkStockLimit('<!--{$smarty.const.DISABLED_RGB}-->');"/>無制限
             </td>
         </tr>
+        <!--{else}-->
+        
+        <tr>
+            <th><!--{$smarty.const.OFF_RATE}--></th>
+            <td>
+                <span class="attention"><!--{$arrErr.off_rate_all_models}--></span>
+                <input type="text" name="off_rate" value="<!--{$arrForm.off_rate_all_models|h}-->" size="6" class="box6" maxlength="<!--{$smarty.const.PERCENTAGE_LEN}-->" style="<!--{if $arrErr.off_rate_all_models != ""}-->background-color: <!--{$smarty.const.ERR_COLOR}-->;<!--{/if}-->"/>％
+                <span class="attention"> (半角数字で入力)</span>
+                <span class="attention"> ※この商品のすべての規格に反映されます。</span>
+                
+            </td>
+        </tr>
+        
         <!--{/if}-->
 
         <tr>

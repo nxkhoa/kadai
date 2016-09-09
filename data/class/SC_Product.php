@@ -433,10 +433,6 @@ __EOS__;
         if (!SC_Utils_Ex::isBlank($arrProduct['off_rate'])) {
             $arrProduct['price03_inctax'] = SC_Helper_TaxRule_Ex::sfCalcIncTax($arrProduct['price02']-$arrProduct['price02']*$arrProduct['off_rate']/100, $arrProduct['product_id'], $productClassId);        
         }
-        // TODO add here DONE
-        if (!SC_Utils_Ex::isBlank($arrProduct['off_rate'])) {
-            $arrProduct['price03'] = $arrProduct['price02']-$arrProduct['price02']*$arrProduct['off_rate']/100;        
-        }
         return $arrProduct;
     }
 
@@ -694,7 +690,6 @@ __EOS__;
                 dtb_products_class.sale_limit,
                 dtb_products_class.price01,
                 dtb_products_class.price02,
-                dtb_products_class.price03,
                 dtb_products_class.off_rate,
                 dtb_products_class.deliv_fee,
                 dtb_products_class.point_rate,
